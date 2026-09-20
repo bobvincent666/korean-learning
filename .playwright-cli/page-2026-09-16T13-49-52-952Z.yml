@@ -1,0 +1,313 @@
+- generic [ref=e1]:
+  - link "跳到主要内容" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "韩文，慢慢读，返回顶部" [ref=e4] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=e5]: ㅎ
+      - generic [ref=e6]:
+        - generic [ref=e7]: 한글，慢慢读
+        - generic [ref=e8]: YOUR KOREAN PRACTICE DESK
+    - tablist "学习区域" [ref=e9]:
+      - tab "01 韩文拼读" [ref=e10] [cursor=pointer]
+      - tab "02 单词与句子" [active] [selected] [ref=e11] [cursor=pointer]
+      - tab "03 视频" [ref=e12] [cursor=pointer]
+  - main [ref=e13]:
+    - region [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: 零基础 · 韩语第一步
+        - heading [level=1] [ref=e18]:
+          - text: 从一个音节，
+          - emphasis [ref=e19]: 读懂一句韩语。
+        - paragraph [ref=e20]: 看字形、听发音，再把熟悉的音节放进真实的单词和句子里。每天一点，慢慢读出自己的韩语。
+        - generic [ref=e21]:
+          - button "开始拼读" [ref=e22] [cursor=pointer]: 开始拼读 ↗
+          - button "看看实际怎么说" [ref=e23] [cursor=pointer]: 看看实际怎么说 →
+      - generic "示范：辅音 ㄱ 加元音 ㅏ 组成 가" [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]: 今日第一声
+          - generic [aria-hidden] [ref=e27]: ▂ ▄ ▆ ▄ ▂
+        - generic [ref=e28]:
+          - generic [ref=e29]: ㄱ
+          - generic [ref=e30]: +
+          - generic [ref=e31]: ㅏ
+          - generic [ref=e32]: =
+          - strong [ref=e33]: 가
+        - generic [ref=e34]:
+          - generic [ref=e35]: ga · 去：가다
+          - button "朗读音节 가" [ref=e36] [cursor=pointer]:
+            - generic [ref=e39]: 听一听
+    - region "学习内容" [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: 02 / WORDS & SENTENCES
+          - heading "从一个字，走进一句话" [level=2] [ref=e1114]
+          - paragraph [ref=e45]: 挑真实常用的词，顺着音节一步步读到完整表达。
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: 发音速度
+            - combobox "发音速度" [ref=e49]:
+              - option "正常" [selected]
+              - option "慢速"
+          - button "重复上一次发音" [ref=e50] [cursor=pointer]: ↻ 再听一次
+      - status [ref=e51]: 当前浏览器未检测到韩语语音。请在系统语音设置中安装韩语语音，或换用支持韩语语音的浏览器。
+      - tabpanel "02 单词与句子" [ref=e1115]:
+        - paragraph [ref=e1118]: 不是每个音节都要硬背成单词。先学有用的，再把它放进一句话里。
+        - generic [ref=e1119]:
+          - generic [ref=e1120]:
+            - generic [ref=e1121]:
+              - generic [ref=e1122]: "01"
+              - generic [ref=e1123]:
+                - heading "基本元音 × 松音" [level=3] [ref=e1124]
+                - paragraph [ref=e1125]: 从熟悉的音节，走到真实表达。
+              - button "查看拼读表 ↗" [ref=e1126] [cursor=pointer]
+            - generic [ref=e1127]:
+              - article [ref=e1128]:
+                - generic [ref=e1129]:
+                  - generic [ref=e1130]: "01"
+                  - generic [ref=e1131]: 起点音节 가
+                - generic [ref=e1132]:
+                  - generic [ref=e1133]:
+                    - generic [ref=e1134]: 가다
+                    - generic [ref=e1135]: gada
+                  - button "朗读单词 가다" [ref=e1136] [cursor=pointer]
+                - paragraph [ref=e1139]: 去
+                - generic [ref=e1140]: 加深拼读
+                - generic [ref=e1143]:
+                  - generic [ref=e1144]:
+                    - generic [ref=e1145]: 제가 가요.
+                    - generic [ref=e1146]: jega gayo
+                  - button "朗读句子 제가 가요." [ref=e1147] [cursor=pointer]
+                - paragraph [ref=e1150]: 我去。
+              - article [ref=e1151]:
+                - generic [ref=e1152]:
+                  - generic [ref=e1153]: "02"
+                  - generic [ref=e1154]: 起点音节 바
+                - generic [ref=e1155]:
+                  - generic [ref=e1156]:
+                    - generic [ref=e1157]: 바다
+                    - generic [ref=e1158]: bada
+                  - button "朗读单词 바다" [ref=e1159] [cursor=pointer]
+                - paragraph [ref=e1162]: 大海
+                - generic [ref=e1163]: 加深拼读
+                - generic [ref=e1166]:
+                  - generic [ref=e1167]:
+                    - generic [ref=e1168]: 바다가 보여요.
+                    - generic [ref=e1169]: badaga boyeoyo
+                  - button "朗读句子 바다가 보여요." [ref=e1170] [cursor=pointer]
+                - paragraph [ref=e1173]: 能看到大海。
+              - article [ref=e1174]:
+                - generic [ref=e1175]:
+                  - generic [ref=e1176]: "03"
+                  - generic [ref=e1177]: 起点音节 서
+                - generic [ref=e1178]:
+                  - generic [ref=e1179]:
+                    - generic [ref=e1180]: 서다
+                    - generic [ref=e1181]: seoda
+                  - button "朗读单词 서다" [ref=e1182] [cursor=pointer]
+                - paragraph [ref=e1185]: 站立
+                - generic [ref=e1186]: 加深拼读
+                - generic [ref=e1189]:
+                  - generic [ref=e1190]:
+                    - generic [ref=e1191]: 여기 서요.
+                    - generic [ref=e1192]: yeogi seoyo
+                  - button "朗读句子 여기 서요." [ref=e1193] [cursor=pointer]
+                - paragraph [ref=e1196]: 站在这里。
+          - generic [ref=e1197]:
+            - generic [ref=e1198]:
+              - generic [ref=e1199]: "02"
+              - generic [ref=e1200]:
+                - heading "ㅣ·ㅐ·ㅔ × 紧音" [level=3] [ref=e1201]
+                - paragraph [ref=e1202]: 从熟悉的音节，走到真实表达。
+              - button "查看拼读表 ↗" [ref=e1203] [cursor=pointer]
+            - generic [ref=e1204]:
+              - article [ref=e1205]:
+                - generic [ref=e1206]:
+                  - generic [ref=e1207]: "01"
+                  - generic [ref=e1208]: 起点音节 깨
+                - generic [ref=e1209]:
+                  - generic [ref=e1210]:
+                    - generic [ref=e1211]: 깨끗하다
+                    - generic [ref=e1212]: kkaekkeuthada
+                  - button "朗读单词 깨끗하다" [ref=e1213] [cursor=pointer]
+                - paragraph [ref=e1216]: 干净
+                - generic [ref=e1217]: 加深拼读
+                - generic [ref=e1220]:
+                  - generic [ref=e1221]:
+                    - generic [ref=e1222]: 책상이 깨끗해요.
+                    - generic [ref=e1223]: chaeksangi kkaekkeutaeyo
+                  - button "朗读句子 책상이 깨끗해요." [ref=e1224] [cursor=pointer]
+                - paragraph [ref=e1227]: 桌子很干净。
+              - article [ref=e1228]:
+                - generic [ref=e1229]:
+                  - generic [ref=e1230]: "02"
+                  - generic [ref=e1231]: 起点音节 때
+                - generic [ref=e1232]:
+                  - generic [ref=e1233]:
+                    - generic [ref=e1234]: 그때
+                    - generic [ref=e1235]: geuttae
+                  - button "朗读单词 그때" [ref=e1236] [cursor=pointer]
+                - paragraph [ref=e1239]: 那时候
+                - generic [ref=e1240]: 加深拼读
+                - generic [ref=e1243]:
+                  - generic [ref=e1244]:
+                    - generic [ref=e1245]: 그때 만나요.
+                    - generic [ref=e1246]: geuttae mannayo
+                  - button "朗读句子 그때 만나요." [ref=e1247] [cursor=pointer]
+                - paragraph [ref=e1250]: 到时候见。
+              - article [ref=e1251]:
+                - generic [ref=e1252]:
+                  - generic [ref=e1253]: "03"
+                  - generic [ref=e1254]: 起点音节 빼
+                - generic [ref=e1255]:
+                  - generic [ref=e1256]:
+                    - generic [ref=e1257]: 빼다
+                    - generic [ref=e1258]: ppaeda
+                  - button "朗读单词 빼다" [ref=e1259] [cursor=pointer]
+                - paragraph [ref=e1262]: 去掉、拿出
+                - generic [ref=e1263]: 加深拼读
+                - generic [ref=e1266]:
+                  - generic [ref=e1267]:
+                    - generic [ref=e1268]: 이름을 빼 주세요.
+                    - generic [ref=e1269]: ireumeul ppae juseyo
+                  - button "朗读句子 이름을 빼 주세요." [ref=e1270] [cursor=pointer]
+                - paragraph [ref=e1273]: 请把名字去掉。
+          - generic [ref=e1274]:
+            - generic [ref=e1275]:
+              - generic [ref=e1276]: "03"
+              - generic [ref=e1277]:
+                - heading "Y 行元音 × 送气音" [level=3] [ref=e1278]
+                - paragraph [ref=e1279]: 从熟悉的音节，走到真实表达。
+              - button "查看拼读表 ↗" [ref=e1280] [cursor=pointer]
+            - generic [ref=e1281]:
+              - article [ref=e1282]:
+                - generic [ref=e1283]:
+                  - generic [ref=e1284]: "01"
+                  - generic [ref=e1285]: 起点音节 차
+                - generic [ref=e1286]:
+                  - generic [ref=e1287]:
+                    - generic [ref=e1288]: 차
+                    - generic [ref=e1289]: cha
+                  - button "朗读单词 차" [ref=e1290] [cursor=pointer]
+                - paragraph [ref=e1293]: 茶；车
+                - generic [ref=e1294]: 加深拼读
+                - generic [ref=e1297]:
+                  - generic [ref=e1298]:
+                    - generic [ref=e1299]: 차를 마셔요.
+                    - generic [ref=e1300]: chareul masyeoyo
+                  - button "朗读句子 차를 마셔요." [ref=e1301] [cursor=pointer]
+                - paragraph [ref=e1304]: 喝茶。
+              - article [ref=e1305]:
+                - generic [ref=e1306]:
+                  - generic [ref=e1307]: "02"
+                  - generic [ref=e1308]: 起点音节 켜
+                - generic [ref=e1309]:
+                  - generic [ref=e1310]:
+                    - generic [ref=e1311]: 켜다
+                    - generic [ref=e1312]: kyeoda
+                  - button "朗读单词 켜다" [ref=e1313] [cursor=pointer]
+                - paragraph [ref=e1316]: 打开（电器）
+                - generic [ref=e1317]: 加深拼读
+                - generic [ref=e1320]:
+                  - generic [ref=e1321]:
+                    - generic [ref=e1322]: 불을 켜요.
+                    - generic [ref=e1323]: bureul kyeoyo
+                  - button "朗读句子 불을 켜요." [ref=e1324] [cursor=pointer]
+                - paragraph [ref=e1327]: 开灯。
+              - article [ref=e1328]:
+                - generic [ref=e1329]:
+                  - generic [ref=e1330]: "03"
+                  - generic [ref=e1331]: 起点音节 펴
+                - generic [ref=e1332]:
+                  - generic [ref=e1333]:
+                    - generic [ref=e1334]: 펴다
+                    - generic [ref=e1335]: pyeoda
+                  - button "朗读单词 펴다" [ref=e1336] [cursor=pointer]
+                - paragraph [ref=e1339]: 展开、翻开
+                - generic [ref=e1340]: 加深拼读
+                - generic [ref=e1343]:
+                  - generic [ref=e1344]:
+                    - generic [ref=e1345]: 책을 펴요.
+                    - generic [ref=e1346]: chaegeul pyeoyo
+                  - button "朗读句子 책을 펴요." [ref=e1347] [cursor=pointer]
+                - paragraph [ref=e1350]: 把书翻开。
+          - generic [ref=e1351]:
+            - generic [ref=e1352]:
+              - generic [ref=e1353]: "04"
+              - generic [ref=e1354]:
+                - heading "W 行元音 × 其他辅音" [level=3] [ref=e1355]
+                - paragraph [ref=e1356]: 从熟悉的音节，走到真实表达。
+              - button "查看拼读表 ↗" [ref=e1357] [cursor=pointer]
+            - generic [ref=e1358]:
+              - article [ref=e1359]:
+                - generic [ref=e1360]:
+                  - generic [ref=e1361]: "01"
+                  - generic [ref=e1362]: 起点音节 와
+                - generic [ref=e1363]:
+                  - generic [ref=e1364]:
+                    - generic [ref=e1365]: 오다
+                    - generic [ref=e1366]: oda
+                  - button "朗读单词 오다" [ref=e1367] [cursor=pointer]
+                - paragraph [ref=e1370]: 来
+                - generic [ref=e1371]: 加深拼读
+                - generic [ref=e1374]:
+                  - generic [ref=e1375]:
+                    - generic [ref=e1376]: 동료가 와요.
+                    - generic [ref=e1377]: dongnyoga wayo
+                  - button "朗读句子 동료가 와요." [ref=e1378] [cursor=pointer]
+                - paragraph [ref=e1381]: 同事来了。
+              - article [ref=e1382]:
+                - generic [ref=e1383]:
+                  - generic [ref=e1384]: "02"
+                  - generic [ref=e1385]: 起点音节 위
+                - generic [ref=e1386]:
+                  - generic [ref=e1387]:
+                    - generic [ref=e1388]: 위
+                    - generic [ref=e1389]: wi
+                  - button "朗读单词 위" [ref=e1390] [cursor=pointer]
+                - paragraph [ref=e1393]: 上面
+                - generic [ref=e1394]: 加深拼读
+                - generic [ref=e1397]:
+                  - generic [ref=e1398]:
+                    - generic [ref=e1399]: 책이 위에 있어요.
+                    - generic [ref=e1400]: chaegi wie isseoyo
+                  - button "朗读句子 책이 위에 있어요." [ref=e1401] [cursor=pointer]
+                - paragraph [ref=e1404]: 书在上面。
+              - article [ref=e1405]:
+                - generic [ref=e1406]:
+                  - generic [ref=e1407]: "03"
+                  - generic [ref=e1408]: 起点音节 뭐
+                - generic [ref=e1409]:
+                  - generic [ref=e1410]:
+                    - generic [ref=e1411]: 뭐
+                    - generic [ref=e1412]: mwo
+                  - button "朗读单词 뭐" [ref=e1413] [cursor=pointer]
+                - paragraph [ref=e1416]: 什么
+                - generic [ref=e1417]: 加深拼读
+                - generic [ref=e1420]:
+                  - generic [ref=e1421]:
+                    - generic [ref=e1422]: 이건 뭐예요?
+                    - generic [ref=e1423]: igeon mwoyeyo
+                  - button "朗读句子 이건 뭐예요?" [ref=e1424] [cursor=pointer]
+                - paragraph [ref=e1427]: 这是什么？
+              - article [ref=e1428]:
+                - generic [ref=e1429]:
+                  - generic [ref=e1430]: "04"
+                  - generic [ref=e1431]: 起点音节 왜
+                - generic [ref=e1432]:
+                  - generic [ref=e1433]:
+                    - generic [ref=e1434]: 왜
+                    - generic [ref=e1435]: wae
+                  - button "朗读单词 왜" [ref=e1436] [cursor=pointer]
+                - paragraph [ref=e1439]: 为什么
+                - generic [ref=e1440]: 加深拼读
+                - generic [ref=e1443]:
+                  - generic [ref=e1444]:
+                    - generic [ref=e1445]: 왜요?
+                    - generic [ref=e1446]: waeyo
+                  - button "朗读句子 왜요?" [ref=e1447] [cursor=pointer]
+                - paragraph [ref=e1450]: 为什么呢？
+  - contentinfo [ref=e1110]:
+    - generic [ref=e1111]: 한글，慢慢读
+    - paragraph [ref=e1112]: 先听，再读；先读，再说。
+    - generic [ref=e1113]: 罗马字仅用于辅助入门，发音请以韩语语音为准。

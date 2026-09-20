@@ -1,0 +1,832 @@
+- generic [active] [ref=f3e1]:
+  - link "跳到主要内容" [ref=f3e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f3e3]:
+    - link "韩文，慢慢读，返回顶部" [ref=f3e4] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=f3e5]: ㅎ
+      - generic [ref=f3e6]:
+        - generic [ref=f3e7]: 한글，慢慢读
+        - generic [ref=f3e8]: YOUR KOREAN PRACTICE DESK
+    - tablist "学习区域" [ref=f3e9]:
+      - tab "01 韩文拼读" [selected] [ref=f3e10] [cursor=pointer]
+      - tab "02 单词与句子" [ref=f3e11] [cursor=pointer]
+      - tab "03 视频" [ref=f3e12] [cursor=pointer]
+  - main [ref=f3e13]:
+    - region [ref=f3e14]:
+      - generic [ref=f3e15]:
+        - paragraph [ref=f3e16]: 零基础 · 韩语第一步
+        - heading [level=1] [ref=f3e18]:
+          - text: 从一个音节，
+          - emphasis [ref=f3e19]: 读懂一句韩语。
+        - paragraph [ref=f3e20]: 看字形、听发音，再把熟悉的音节放进真实的单词和句子里。每天一点，慢慢读出自己的韩语。
+        - generic [ref=f3e21]:
+          - button "开始拼读" [ref=f3e22] [cursor=pointer]: 开始拼读 ↗
+          - button "看看实际怎么说" [ref=f3e23] [cursor=pointer]: 看看实际怎么说 →
+      - generic "示范：辅音 ㄱ 加元音 ㅏ 组成 가" [ref=f3e24]:
+        - generic [ref=f3e25]:
+          - generic [ref=f3e26]: 今日第一声
+          - generic [aria-hidden] [ref=f3e27]: ▂ ▄ ▆ ▄ ▂
+        - generic [ref=f3e28]:
+          - generic [ref=f3e29]: ㄱ
+          - generic [ref=f3e30]: +
+          - generic [ref=f3e31]: ㅏ
+          - generic [ref=f3e32]: =
+          - strong [ref=f3e33]: 가
+        - generic [ref=f3e34]:
+          - generic [ref=f3e35]: ga · 去：가다
+          - button "朗读音节 가" [ref=f3e36] [cursor=pointer]
+    - region "学习内容" [ref=f3e39]:
+      - generic [ref=f3e40]:
+        - generic [ref=f3e41]:
+          - paragraph [ref=f3e42]: 01 / SOUND TABLES
+          - heading "把声音排成一张地图" [level=2] [ref=f3e43]
+          - paragraph [ref=f3e44]: 先认横轴元音，再认纵轴辅音。每一个交叉格，都可以点开听。
+        - generic [ref=f3e45]:
+          - generic [ref=f3e46]:
+            - generic [ref=f3e47]: 发音速度
+            - combobox "发音速度" [ref=f3e48]:
+              - option "正常" [selected]
+              - option "慢速"
+          - button "重复上一次发音" [ref=f3e49] [cursor=pointer]: ↻ 再听一次
+      - status [ref=f3e50]: 当前浏览器未检测到韩语语音。请在系统语音设置中安装韩语语音，或换用支持韩语语音的浏览器。
+      - tabpanel "01 韩文拼读" [ref=f3e51]:
+        - paragraph [ref=f3e54]:
+          - text: 四组拼读表，共
+          - strong [ref=f3e55]: "99"
+          - text: 个音节。浅绿色是元音，浅红色是辅音；小字是标准罗马字提示。
+        - generic [ref=f3e56]:
+          - generic [ref=f3e57]:
+            - generic [ref=f3e58]:
+              - generic [ref=f3e59]:
+                - generic [ref=f3e60]: "01"
+                - heading "基本元音 × 松音" [level=3] [ref=f3e61]
+              - paragraph [ref=f3e62]: 先从这里开始
+            - table [ref=f3e64]:
+              - caption [ref=f3e65]: 基本元音 × 松音｜横轴元音，纵轴辅音；小字为标准罗马字
+              - rowgroup [ref=f3e66]:
+                - row [ref=f3e67]:
+                  - columnheader [ref=f3e68]:
+                    - generic [ref=f3e69]: 辅音 ↓元音 →
+                  - columnheader "ㅏ a 朗读元音 ㅏ，示范音 아" [ref=f3e70]:
+                    - generic [ref=f3e71]:
+                      - generic [ref=f3e72]: ㅏ
+                      - generic [ref=f3e73]: a
+                      - button "朗读元音 ㅏ，示范音 아" [ref=f3e74] [cursor=pointer]
+                  - columnheader "ㅓ eo 朗读元音 ㅓ，示范音 어" [ref=f3e77]:
+                    - generic [ref=f3e78]:
+                      - generic [ref=f3e79]: ㅓ
+                      - generic [ref=f3e80]: eo
+                      - button "朗读元音 ㅓ，示范音 어" [ref=f3e81] [cursor=pointer]
+                  - columnheader "ㅗ o 朗读元音 ㅗ，示范音 오" [ref=f3e84]:
+                    - generic [ref=f3e85]:
+                      - generic [ref=f3e86]: ㅗ
+                      - generic [ref=f3e87]: o
+                      - button "朗读元音 ㅗ，示范音 오" [ref=f3e88] [cursor=pointer]
+                  - columnheader "ㅜ u 朗读元音 ㅜ，示范音 우" [ref=f3e91]:
+                    - generic [ref=f3e92]:
+                      - generic [ref=f3e93]: ㅜ
+                      - generic [ref=f3e94]: u
+                      - button "朗读元音 ㅜ，示范音 우" [ref=f3e95] [cursor=pointer]
+                  - columnheader "ㅡ eu 朗读元音 ㅡ，示范音 으" [ref=f3e98]:
+                    - generic [ref=f3e99]:
+                      - generic [ref=f3e100]: ㅡ
+                      - generic [ref=f3e101]: eu
+                      - button "朗读元音 ㅡ，示范音 으" [ref=f3e102] [cursor=pointer]
+              - rowgroup [ref=f3e105]:
+                - row [ref=f3e106]:
+                  - rowheader "ㄱ g 朗读辅音 ㄱ，示范音 가" [ref=f3e107]:
+                    - generic [ref=f3e108]:
+                      - generic [ref=f3e109]: ㄱ
+                      - generic [ref=f3e110]: g
+                      - button "朗读辅音 ㄱ，示范音 가" [ref=f3e111] [cursor=pointer]
+                  - cell "가 ga 朗读音节 가" [ref=f3e114]:
+                    - generic [ref=f3e115]:
+                      - generic [ref=f3e116]: 가
+                      - generic [ref=f3e117]: ga
+                      - button "朗读音节 가" [ref=f3e118] [cursor=pointer]
+                  - cell "거 geo 朗读音节 거" [ref=f3e121]:
+                    - generic [ref=f3e122]:
+                      - generic [ref=f3e123]: 거
+                      - generic [ref=f3e124]: geo
+                      - button "朗读音节 거" [ref=f3e125] [cursor=pointer]
+                  - cell "고 go 朗读音节 고" [ref=f3e128]:
+                    - generic [ref=f3e129]:
+                      - generic [ref=f3e130]: 고
+                      - generic [ref=f3e131]: go
+                      - button "朗读音节 고" [ref=f3e132] [cursor=pointer]
+                  - cell "구 gu 朗读音节 구" [ref=f3e135]:
+                    - generic [ref=f3e136]:
+                      - generic [ref=f3e137]: 구
+                      - generic [ref=f3e138]: gu
+                      - button "朗读音节 구" [ref=f3e139] [cursor=pointer]
+                  - cell "그 geu 朗读音节 그" [ref=f3e142]:
+                    - generic [ref=f3e143]:
+                      - generic [ref=f3e144]: 그
+                      - generic [ref=f3e145]: geu
+                      - button "朗读音节 그" [ref=f3e146] [cursor=pointer]
+                - row [ref=f3e149]:
+                  - rowheader "ㄷ d 朗读辅音 ㄷ，示范音 다" [ref=f3e150]:
+                    - generic [ref=f3e151]:
+                      - generic [ref=f3e152]: ㄷ
+                      - generic [ref=f3e153]: d
+                      - button "朗读辅音 ㄷ，示范音 다" [ref=f3e154] [cursor=pointer]
+                  - cell "다 da 朗读音节 다" [ref=f3e157]:
+                    - generic [ref=f3e158]:
+                      - generic [ref=f3e159]: 다
+                      - generic [ref=f3e160]: da
+                      - button "朗读音节 다" [ref=f3e161] [cursor=pointer]
+                  - cell "더 deo 朗读音节 더" [ref=f3e164]:
+                    - generic [ref=f3e165]:
+                      - generic [ref=f3e166]: 더
+                      - generic [ref=f3e167]: deo
+                      - button "朗读音节 더" [ref=f3e168] [cursor=pointer]
+                  - cell "도 do 朗读音节 도" [ref=f3e171]:
+                    - generic [ref=f3e172]:
+                      - generic [ref=f3e173]: 도
+                      - generic [ref=f3e174]: do
+                      - button "朗读音节 도" [ref=f3e175] [cursor=pointer]
+                  - cell "두 du 朗读音节 두" [ref=f3e178]:
+                    - generic [ref=f3e179]:
+                      - generic [ref=f3e180]: 두
+                      - generic [ref=f3e181]: du
+                      - button "朗读音节 두" [ref=f3e182] [cursor=pointer]
+                  - cell "드 deu 朗读音节 드" [ref=f3e185]:
+                    - generic [ref=f3e186]:
+                      - generic [ref=f3e187]: 드
+                      - generic [ref=f3e188]: deu
+                      - button "朗读音节 드" [ref=f3e189] [cursor=pointer]
+                - row [ref=f3e192]:
+                  - rowheader "ㅂ b 朗读辅音 ㅂ，示范音 바" [ref=f3e193]:
+                    - generic [ref=f3e194]:
+                      - generic [ref=f3e195]: ㅂ
+                      - generic [ref=f3e196]: b
+                      - button "朗读辅音 ㅂ，示范音 바" [ref=f3e197] [cursor=pointer]
+                  - cell "바 ba 朗读音节 바" [ref=f3e200]:
+                    - generic [ref=f3e201]:
+                      - generic [ref=f3e202]: 바
+                      - generic [ref=f3e203]: ba
+                      - button "朗读音节 바" [ref=f3e204] [cursor=pointer]
+                  - cell "버 beo 朗读音节 버" [ref=f3e207]:
+                    - generic [ref=f3e208]:
+                      - generic [ref=f3e209]: 버
+                      - generic [ref=f3e210]: beo
+                      - button "朗读音节 버" [ref=f3e211] [cursor=pointer]
+                  - cell "보 bo 朗读音节 보" [ref=f3e214]:
+                    - generic [ref=f3e215]:
+                      - generic [ref=f3e216]: 보
+                      - generic [ref=f3e217]: bo
+                      - button "朗读音节 보" [ref=f3e218] [cursor=pointer]
+                  - cell "부 bu 朗读音节 부" [ref=f3e221]:
+                    - generic [ref=f3e222]:
+                      - generic [ref=f3e223]: 부
+                      - generic [ref=f3e224]: bu
+                      - button "朗读音节 부" [ref=f3e225] [cursor=pointer]
+                  - cell "브 beu 朗读音节 브" [ref=f3e228]:
+                    - generic [ref=f3e229]:
+                      - generic [ref=f3e230]: 브
+                      - generic [ref=f3e231]: beu
+                      - button "朗读音节 브" [ref=f3e232] [cursor=pointer]
+                - row [ref=f3e235]:
+                  - rowheader "ㅅ s 朗读辅音 ㅅ，示范音 사" [ref=f3e236]:
+                    - generic [ref=f3e237]:
+                      - generic [ref=f3e238]: ㅅ
+                      - generic [ref=f3e239]: s
+                      - button "朗读辅音 ㅅ，示范音 사" [ref=f3e240] [cursor=pointer]
+                  - cell "사 sa 朗读音节 사" [ref=f3e243]:
+                    - generic [ref=f3e244]:
+                      - generic [ref=f3e245]: 사
+                      - generic [ref=f3e246]: sa
+                      - button "朗读音节 사" [ref=f3e247] [cursor=pointer]
+                  - cell "서 seo 朗读音节 서" [ref=f3e250]:
+                    - generic [ref=f3e251]:
+                      - generic [ref=f3e252]: 서
+                      - generic [ref=f3e253]: seo
+                      - button "朗读音节 서" [ref=f3e254] [cursor=pointer]
+                  - cell "소 so 朗读音节 소" [ref=f3e257]:
+                    - generic [ref=f3e258]:
+                      - generic [ref=f3e259]: 소
+                      - generic [ref=f3e260]: so
+                      - button "朗读音节 소" [ref=f3e261] [cursor=pointer]
+                  - cell "수 su 朗读音节 수" [ref=f3e264]:
+                    - generic [ref=f3e265]:
+                      - generic [ref=f3e266]: 수
+                      - generic [ref=f3e267]: su
+                      - button "朗读音节 수" [ref=f3e268] [cursor=pointer]
+                  - cell "스 seu 朗读音节 스" [ref=f3e271]:
+                    - generic [ref=f3e272]:
+                      - generic [ref=f3e273]: 스
+                      - generic [ref=f3e274]: seu
+                      - button "朗读音节 스" [ref=f3e275] [cursor=pointer]
+                - row [ref=f3e278]:
+                  - rowheader "ㅈ j 朗读辅音 ㅈ，示范音 자" [ref=f3e279]:
+                    - generic [ref=f3e280]:
+                      - generic [ref=f3e281]: ㅈ
+                      - generic [ref=f3e282]: j
+                      - button "朗读辅音 ㅈ，示范音 자" [ref=f3e283] [cursor=pointer]
+                  - cell "자 ja 朗读音节 자" [ref=f3e286]:
+                    - generic [ref=f3e287]:
+                      - generic [ref=f3e288]: 자
+                      - generic [ref=f3e289]: ja
+                      - button "朗读音节 자" [ref=f3e290] [cursor=pointer]
+                  - cell "저 jeo 朗读音节 저" [ref=f3e293]:
+                    - generic [ref=f3e294]:
+                      - generic [ref=f3e295]: 저
+                      - generic [ref=f3e296]: jeo
+                      - button "朗读音节 저" [ref=f3e297] [cursor=pointer]
+                  - cell "조 jo 朗读音节 조" [ref=f3e300]:
+                    - generic [ref=f3e301]:
+                      - generic [ref=f3e302]: 조
+                      - generic [ref=f3e303]: jo
+                      - button "朗读音节 조" [ref=f3e304] [cursor=pointer]
+                  - cell "주 ju 朗读音节 주" [ref=f3e307]:
+                    - generic [ref=f3e308]:
+                      - generic [ref=f3e309]: 주
+                      - generic [ref=f3e310]: ju
+                      - button "朗读音节 주" [ref=f3e311] [cursor=pointer]
+                  - cell "즈 jeu 朗读音节 즈" [ref=f3e314]:
+                    - generic [ref=f3e315]:
+                      - generic [ref=f3e316]: 즈
+                      - generic [ref=f3e317]: jeu
+                      - button "朗读音节 즈" [ref=f3e318] [cursor=pointer]
+            - paragraph [ref=f3e321]: 点击小喇叭听韩语发音。辅音按钮播放旁注的示范音节，不把字母名称当作辅音音值。
+          - generic [ref=f3e322]:
+            - generic [ref=f3e323]:
+              - generic [ref=f3e324]:
+                - generic [ref=f3e325]: "02"
+                - heading "ㅣ·ㅐ·ㅔ × 紧音" [level=3] [ref=f3e326]
+              - paragraph [ref=f3e327]: 听出更紧的声音
+            - table [ref=f3e329]:
+              - caption [ref=f3e330]: ㅣ·ㅐ·ㅔ × 紧音｜横轴元音，纵轴辅音；小字为标准罗马字
+              - rowgroup [ref=f3e331]:
+                - row [ref=f3e332]:
+                  - columnheader [ref=f3e333]:
+                    - generic [ref=f3e334]: 辅音 ↓元音 →
+                  - columnheader "ㅣ i 朗读元音 ㅣ，示范音 이" [ref=f3e335]:
+                    - generic [ref=f3e336]:
+                      - generic [ref=f3e337]: ㅣ
+                      - generic [ref=f3e338]: i
+                      - button "朗读元音 ㅣ，示范音 이" [ref=f3e339] [cursor=pointer]
+                  - columnheader "ㅐ ae 朗读元音 ㅐ，示范音 애" [ref=f3e342]:
+                    - generic [ref=f3e343]:
+                      - generic [ref=f3e344]: ㅐ
+                      - generic [ref=f3e345]: ae
+                      - button "朗读元音 ㅐ，示范音 애" [ref=f3e346] [cursor=pointer]
+                  - columnheader "ㅔ e 朗读元音 ㅔ，示范音 에" [ref=f3e349]:
+                    - generic [ref=f3e350]:
+                      - generic [ref=f3e351]: ㅔ
+                      - generic [ref=f3e352]: e
+                      - button "朗读元音 ㅔ，示范音 에" [ref=f3e353] [cursor=pointer]
+              - rowgroup [ref=f3e356]:
+                - row [ref=f3e357]:
+                  - rowheader "ㄲ kk 朗读辅音 ㄲ，示范音 까" [ref=f3e358]:
+                    - generic [ref=f3e359]:
+                      - generic [ref=f3e360]: ㄲ
+                      - generic [ref=f3e361]: kk
+                      - button "朗读辅音 ㄲ，示范音 까" [ref=f3e362] [cursor=pointer]
+                  - cell "끼 kki 朗读音节 끼" [ref=f3e365]:
+                    - generic [ref=f3e366]:
+                      - generic [ref=f3e367]: 끼
+                      - generic [ref=f3e368]: kki
+                      - button "朗读音节 끼" [ref=f3e369] [cursor=pointer]
+                  - cell "깨 kkae 朗读音节 깨" [ref=f3e372]:
+                    - generic [ref=f3e373]:
+                      - generic [ref=f3e374]: 깨
+                      - generic [ref=f3e375]: kkae
+                      - button "朗读音节 깨" [ref=f3e376] [cursor=pointer]
+                  - cell "께 kke 朗读音节 께" [ref=f3e379]:
+                    - generic [ref=f3e380]:
+                      - generic [ref=f3e381]: 께
+                      - generic [ref=f3e382]: kke
+                      - button "朗读音节 께" [ref=f3e383] [cursor=pointer]
+                - row [ref=f3e386]:
+                  - rowheader "ㄸ tt 朗读辅音 ㄸ，示范音 따" [ref=f3e387]:
+                    - generic [ref=f3e388]:
+                      - generic [ref=f3e389]: ㄸ
+                      - generic [ref=f3e390]: tt
+                      - button "朗读辅音 ㄸ，示范音 따" [ref=f3e391] [cursor=pointer]
+                  - cell "띠 tti 朗读音节 띠" [ref=f3e394]:
+                    - generic [ref=f3e395]:
+                      - generic [ref=f3e396]: 띠
+                      - generic [ref=f3e397]: tti
+                      - button "朗读音节 띠" [ref=f3e398] [cursor=pointer]
+                  - cell "때 ttae 朗读音节 때" [ref=f3e401]:
+                    - generic [ref=f3e402]:
+                      - generic [ref=f3e403]: 때
+                      - generic [ref=f3e404]: ttae
+                      - button "朗读音节 때" [ref=f3e405] [cursor=pointer]
+                  - cell "떼 tte 朗读音节 떼" [ref=f3e408]:
+                    - generic [ref=f3e409]:
+                      - generic [ref=f3e410]: 떼
+                      - generic [ref=f3e411]: tte
+                      - button "朗读音节 떼" [ref=f3e412] [cursor=pointer]
+                - row [ref=f3e415]:
+                  - rowheader "ㅃ pp 朗读辅音 ㅃ，示范音 빠" [ref=f3e416]:
+                    - generic [ref=f3e417]:
+                      - generic [ref=f3e418]: ㅃ
+                      - generic [ref=f3e419]: pp
+                      - button "朗读辅音 ㅃ，示范音 빠" [ref=f3e420] [cursor=pointer]
+                  - cell "삐 ppi 朗读音节 삐" [ref=f3e423]:
+                    - generic [ref=f3e424]:
+                      - generic [ref=f3e425]: 삐
+                      - generic [ref=f3e426]: ppi
+                      - button "朗读音节 삐" [ref=f3e427] [cursor=pointer]
+                  - cell "빼 ppae 朗读音节 빼" [ref=f3e430]:
+                    - generic [ref=f3e431]:
+                      - generic [ref=f3e432]: 빼
+                      - generic [ref=f3e433]: ppae
+                      - button "朗读音节 빼" [ref=f3e434] [cursor=pointer]
+                  - cell "뻬 ppe 朗读音节 뻬" [ref=f3e437]:
+                    - generic [ref=f3e438]:
+                      - generic [ref=f3e439]: 뻬
+                      - generic [ref=f3e440]: ppe
+                      - button "朗读音节 뻬" [ref=f3e441] [cursor=pointer]
+                - row [ref=f3e444]:
+                  - rowheader "ㅆ ss 朗读辅音 ㅆ，示范音 싸" [ref=f3e445]:
+                    - generic [ref=f3e446]:
+                      - generic [ref=f3e447]: ㅆ
+                      - generic [ref=f3e448]: ss
+                      - button "朗读辅音 ㅆ，示范音 싸" [ref=f3e449] [cursor=pointer]
+                  - cell "씨 ssi 朗读音节 씨" [ref=f3e452]:
+                    - generic [ref=f3e453]:
+                      - generic [ref=f3e454]: 씨
+                      - generic [ref=f3e455]: ssi
+                      - button "朗读音节 씨" [ref=f3e456] [cursor=pointer]
+                  - cell "쌔 ssae 朗读音节 쌔" [ref=f3e459]:
+                    - generic [ref=f3e460]:
+                      - generic [ref=f3e461]: 쌔
+                      - generic [ref=f3e462]: ssae
+                      - button "朗读音节 쌔" [ref=f3e463] [cursor=pointer]
+                  - cell "쎄 sse 朗读音节 쎄" [ref=f3e466]:
+                    - generic [ref=f3e467]:
+                      - generic [ref=f3e468]: 쎄
+                      - generic [ref=f3e469]: sse
+                      - button "朗读音节 쎄" [ref=f3e470] [cursor=pointer]
+                - row [ref=f3e473]:
+                  - rowheader "ㅉ jj 朗读辅音 ㅉ，示范音 짜" [ref=f3e474]:
+                    - generic [ref=f3e475]:
+                      - generic [ref=f3e476]: ㅉ
+                      - generic [ref=f3e477]: jj
+                      - button "朗读辅音 ㅉ，示范音 짜" [ref=f3e478] [cursor=pointer]
+                  - cell "찌 jji 朗读音节 찌" [ref=f3e481]:
+                    - generic [ref=f3e482]:
+                      - generic [ref=f3e483]: 찌
+                      - generic [ref=f3e484]: jji
+                      - button "朗读音节 찌" [ref=f3e485] [cursor=pointer]
+                  - cell "째 jjae 朗读音节 째" [ref=f3e488]:
+                    - generic [ref=f3e489]:
+                      - generic [ref=f3e490]: 째
+                      - generic [ref=f3e491]: jjae
+                      - button "朗读音节 째" [ref=f3e492] [cursor=pointer]
+                  - cell "쩨 jje 朗读音节 쩨" [ref=f3e495]:
+                    - generic [ref=f3e496]:
+                      - generic [ref=f3e497]: 쩨
+                      - generic [ref=f3e498]: jje
+                      - button "朗读音节 쩨" [ref=f3e499] [cursor=pointer]
+            - paragraph [ref=f3e502]: 点击小喇叭听韩语发音。辅音按钮播放旁注的示范音节，不把字母名称当作辅音音值。
+          - generic [ref=f3e503]:
+            - generic [ref=f3e504]:
+              - generic [ref=f3e505]:
+                - generic [ref=f3e506]: "03"
+                - heading "Y 行元音 × 送气音" [level=3] [ref=f3e507]
+              - paragraph [ref=f3e508]: 留意呼出的气
+            - table [ref=f3e510]:
+              - caption [ref=f3e511]: Y 行元音 × 送气音｜横轴元音，纵轴辅音；小字为标准罗马字
+              - rowgroup [ref=f3e512]:
+                - row [ref=f3e513]:
+                  - columnheader [ref=f3e514]:
+                    - generic [ref=f3e515]: 辅音 ↓元音 →
+                  - columnheader "ㅑ ya 朗读元音 ㅑ，示范音 야" [ref=f3e516]:
+                    - generic [ref=f3e517]:
+                      - generic [ref=f3e518]: ㅑ
+                      - generic [ref=f3e519]: ya
+                      - button "朗读元音 ㅑ，示范音 야" [ref=f3e520] [cursor=pointer]
+                  - columnheader "ㅕ yeo 朗读元音 ㅕ，示范音 여" [ref=f3e523]:
+                    - generic [ref=f3e524]:
+                      - generic [ref=f3e525]: ㅕ
+                      - generic [ref=f3e526]: yeo
+                      - button "朗读元音 ㅕ，示范音 여" [ref=f3e527] [cursor=pointer]
+                  - columnheader "ㅛ yo 朗读元音 ㅛ，示范音 요" [ref=f3e530]:
+                    - generic [ref=f3e531]:
+                      - generic [ref=f3e532]: ㅛ
+                      - generic [ref=f3e533]: yo
+                      - button "朗读元音 ㅛ，示范音 요" [ref=f3e534] [cursor=pointer]
+                  - columnheader "ㅠ yu 朗读元音 ㅠ，示范音 유" [ref=f3e537]:
+                    - generic [ref=f3e538]:
+                      - generic [ref=f3e539]: ㅠ
+                      - generic [ref=f3e540]: yu
+                      - button "朗读元音 ㅠ，示范音 유" [ref=f3e541] [cursor=pointer]
+                  - columnheader "ㅒ yae 朗读元音 ㅒ，示范音 얘" [ref=f3e544]:
+                    - generic [ref=f3e545]:
+                      - generic [ref=f3e546]: ㅒ
+                      - generic [ref=f3e547]: yae
+                      - button "朗读元音 ㅒ，示范音 얘" [ref=f3e548] [cursor=pointer]
+                  - columnheader "ㅖ ye 朗读元音 ㅖ，示范音 예" [ref=f3e551]:
+                    - generic [ref=f3e552]:
+                      - generic [ref=f3e553]: ㅖ
+                      - generic [ref=f3e554]: ye
+                      - button "朗读元音 ㅖ，示范音 예" [ref=f3e555] [cursor=pointer]
+                  - columnheader "ㅢ ui 朗读元音 ㅢ，示范音 의" [ref=f3e558]:
+                    - generic [ref=f3e559]:
+                      - generic [ref=f3e560]: ㅢ
+                      - generic [ref=f3e561]: ui
+                      - button "朗读元音 ㅢ，示范音 의" [ref=f3e562] [cursor=pointer]
+              - rowgroup [ref=f3e565]:
+                - row [ref=f3e566]:
+                  - rowheader "ㅋ k 朗读辅音 ㅋ，示范音 카" [ref=f3e567]:
+                    - generic [ref=f3e568]:
+                      - generic [ref=f3e569]: ㅋ
+                      - generic [ref=f3e570]: k
+                      - button "朗读辅音 ㅋ，示范音 카" [ref=f3e571] [cursor=pointer]
+                  - cell "캬 kya 朗读音节 캬" [ref=f3e574]:
+                    - generic [ref=f3e575]:
+                      - generic [ref=f3e576]: 캬
+                      - generic [ref=f3e577]: kya
+                      - button "朗读音节 캬" [ref=f3e578] [cursor=pointer]
+                  - cell "켜 kyeo 朗读音节 켜" [ref=f3e581]:
+                    - generic [ref=f3e582]:
+                      - generic [ref=f3e583]: 켜
+                      - generic [ref=f3e584]: kyeo
+                      - button "朗读音节 켜" [ref=f3e585] [cursor=pointer]
+                  - cell "쿄 kyo 朗读音节 쿄" [ref=f3e588]:
+                    - generic [ref=f3e589]:
+                      - generic [ref=f3e590]: 쿄
+                      - generic [ref=f3e591]: kyo
+                      - button "朗读音节 쿄" [ref=f3e592] [cursor=pointer]
+                  - cell "큐 kyu 朗读音节 큐" [ref=f3e595]:
+                    - generic [ref=f3e596]:
+                      - generic [ref=f3e597]: 큐
+                      - generic [ref=f3e598]: kyu
+                      - button "朗读音节 큐" [ref=f3e599] [cursor=pointer]
+                  - cell "컈 kyae 朗读音节 컈" [ref=f3e602]:
+                    - generic [ref=f3e603]:
+                      - generic [ref=f3e604]: 컈
+                      - generic [ref=f3e605]: kyae
+                      - button "朗读音节 컈" [ref=f3e606] [cursor=pointer]
+                  - cell "켸 kye 朗读音节 켸" [ref=f3e609]:
+                    - generic [ref=f3e610]:
+                      - generic [ref=f3e611]: 켸
+                      - generic [ref=f3e612]: kye
+                      - button "朗读音节 켸" [ref=f3e613] [cursor=pointer]
+                  - cell "킈 kui 朗读音节 킈" [ref=f3e616]:
+                    - generic [ref=f3e617]:
+                      - generic [ref=f3e618]: 킈
+                      - generic [ref=f3e619]: kui
+                      - button "朗读音节 킈" [ref=f3e620] [cursor=pointer]
+                - row [ref=f3e623]:
+                  - rowheader "ㅌ t 朗读辅音 ㅌ，示范音 타" [ref=f3e624]:
+                    - generic [ref=f3e625]:
+                      - generic [ref=f3e626]: ㅌ
+                      - generic [ref=f3e627]: t
+                      - button "朗读辅音 ㅌ，示范音 타" [ref=f3e628] [cursor=pointer]
+                  - cell "탸 tya 朗读音节 탸" [ref=f3e631]:
+                    - generic [ref=f3e632]:
+                      - generic [ref=f3e633]: 탸
+                      - generic [ref=f3e634]: tya
+                      - button "朗读音节 탸" [ref=f3e635] [cursor=pointer]
+                  - cell "텨 tyeo 朗读音节 텨" [ref=f3e638]:
+                    - generic [ref=f3e639]:
+                      - generic [ref=f3e640]: 텨
+                      - generic [ref=f3e641]: tyeo
+                      - button "朗读音节 텨" [ref=f3e642] [cursor=pointer]
+                  - cell "툐 tyo 朗读音节 툐" [ref=f3e645]:
+                    - generic [ref=f3e646]:
+                      - generic [ref=f3e647]: 툐
+                      - generic [ref=f3e648]: tyo
+                      - button "朗读音节 툐" [ref=f3e649] [cursor=pointer]
+                  - cell "튜 tyu 朗读音节 튜" [ref=f3e652]:
+                    - generic [ref=f3e653]:
+                      - generic [ref=f3e654]: 튜
+                      - generic [ref=f3e655]: tyu
+                      - button "朗读音节 튜" [ref=f3e656] [cursor=pointer]
+                  - cell "턔 tyae 朗读音节 턔" [ref=f3e659]:
+                    - generic [ref=f3e660]:
+                      - generic [ref=f3e661]: 턔
+                      - generic [ref=f3e662]: tyae
+                      - button "朗读音节 턔" [ref=f3e663] [cursor=pointer]
+                  - cell "톄 tye 朗读音节 톄" [ref=f3e666]:
+                    - generic [ref=f3e667]:
+                      - generic [ref=f3e668]: 톄
+                      - generic [ref=f3e669]: tye
+                      - button "朗读音节 톄" [ref=f3e670] [cursor=pointer]
+                  - cell "틔 tui 朗读音节 틔" [ref=f3e673]:
+                    - generic [ref=f3e674]:
+                      - generic [ref=f3e675]: 틔
+                      - generic [ref=f3e676]: tui
+                      - button "朗读音节 틔" [ref=f3e677] [cursor=pointer]
+                - row [ref=f3e680]:
+                  - rowheader "ㅍ p 朗读辅音 ㅍ，示范音 파" [ref=f3e681]:
+                    - generic [ref=f3e682]:
+                      - generic [ref=f3e683]: ㅍ
+                      - generic [ref=f3e684]: p
+                      - button "朗读辅音 ㅍ，示范音 파" [ref=f3e685] [cursor=pointer]
+                  - cell "퍄 pya 朗读音节 퍄" [ref=f3e688]:
+                    - generic [ref=f3e689]:
+                      - generic [ref=f3e690]: 퍄
+                      - generic [ref=f3e691]: pya
+                      - button "朗读音节 퍄" [ref=f3e692] [cursor=pointer]
+                  - cell "펴 pyeo 朗读音节 펴" [ref=f3e695]:
+                    - generic [ref=f3e696]:
+                      - generic [ref=f3e697]: 펴
+                      - generic [ref=f3e698]: pyeo
+                      - button "朗读音节 펴" [ref=f3e699] [cursor=pointer]
+                  - cell "표 pyo 朗读音节 표" [ref=f3e702]:
+                    - generic [ref=f3e703]:
+                      - generic [ref=f3e704]: 표
+                      - generic [ref=f3e705]: pyo
+                      - button "朗读音节 표" [ref=f3e706] [cursor=pointer]
+                  - cell "퓨 pyu 朗读音节 퓨" [ref=f3e709]:
+                    - generic [ref=f3e710]:
+                      - generic [ref=f3e711]: 퓨
+                      - generic [ref=f3e712]: pyu
+                      - button "朗读音节 퓨" [ref=f3e713] [cursor=pointer]
+                  - cell "퍠 pyae 朗读音节 퍠" [ref=f3e716]:
+                    - generic [ref=f3e717]:
+                      - generic [ref=f3e718]: 퍠
+                      - generic [ref=f3e719]: pyae
+                      - button "朗读音节 퍠" [ref=f3e720] [cursor=pointer]
+                  - cell "폐 pye 朗读音节 폐" [ref=f3e723]:
+                    - generic [ref=f3e724]:
+                      - generic [ref=f3e725]: 폐
+                      - generic [ref=f3e726]: pye
+                      - button "朗读音节 폐" [ref=f3e727] [cursor=pointer]
+                  - cell "픠 pui 朗读音节 픠" [ref=f3e730]:
+                    - generic [ref=f3e731]:
+                      - generic [ref=f3e732]: 픠
+                      - generic [ref=f3e733]: pui
+                      - button "朗读音节 픠" [ref=f3e734] [cursor=pointer]
+                - row [ref=f3e737]:
+                  - rowheader "ㅎ h 朗读辅音 ㅎ，示范音 하" [ref=f3e738]:
+                    - generic [ref=f3e739]:
+                      - generic [ref=f3e740]: ㅎ
+                      - generic [ref=f3e741]: h
+                      - button "朗读辅音 ㅎ，示范音 하" [ref=f3e742] [cursor=pointer]
+                  - cell "햐 hya 朗读音节 햐" [ref=f3e745]:
+                    - generic [ref=f3e746]:
+                      - generic [ref=f3e747]: 햐
+                      - generic [ref=f3e748]: hya
+                      - button "朗读音节 햐" [ref=f3e749] [cursor=pointer]
+                  - cell "혀 hyeo 朗读音节 혀" [ref=f3e752]:
+                    - generic [ref=f3e753]:
+                      - generic [ref=f3e754]: 혀
+                      - generic [ref=f3e755]: hyeo
+                      - button "朗读音节 혀" [ref=f3e756] [cursor=pointer]
+                  - cell "효 hyo 朗读音节 효" [ref=f3e759]:
+                    - generic [ref=f3e760]:
+                      - generic [ref=f3e761]: 효
+                      - generic [ref=f3e762]: hyo
+                      - button "朗读音节 효" [ref=f3e763] [cursor=pointer]
+                  - cell "휴 hyu 朗读音节 휴" [ref=f3e766]:
+                    - generic [ref=f3e767]:
+                      - generic [ref=f3e768]: 휴
+                      - generic [ref=f3e769]: hyu
+                      - button "朗读音节 휴" [ref=f3e770] [cursor=pointer]
+                  - cell "햬 hyae 朗读音节 햬" [ref=f3e773]:
+                    - generic [ref=f3e774]:
+                      - generic [ref=f3e775]: 햬
+                      - generic [ref=f3e776]: hyae
+                      - button "朗读音节 햬" [ref=f3e777] [cursor=pointer]
+                  - cell "혜 hye 朗读音节 혜" [ref=f3e780]:
+                    - generic [ref=f3e781]:
+                      - generic [ref=f3e782]: 혜
+                      - generic [ref=f3e783]: hye
+                      - button "朗读音节 혜" [ref=f3e784] [cursor=pointer]
+                  - cell "희 hui 朗读音节 희" [ref=f3e787]:
+                    - generic [ref=f3e788]:
+                      - generic [ref=f3e789]: 희
+                      - generic [ref=f3e790]: hui
+                      - button "朗读音节 희" [ref=f3e791] [cursor=pointer]
+                - row [ref=f3e794]:
+                  - rowheader "ㅊ ch 朗读辅音 ㅊ，示范音 차" [ref=f3e795]:
+                    - generic [ref=f3e796]:
+                      - generic [ref=f3e797]: ㅊ
+                      - generic [ref=f3e798]: ch
+                      - button "朗读辅音 ㅊ，示范音 차" [ref=f3e799] [cursor=pointer]
+                  - cell "챠 chya 朗读音节 챠" [ref=f3e802]:
+                    - generic [ref=f3e803]:
+                      - generic [ref=f3e804]: 챠
+                      - generic [ref=f3e805]: chya
+                      - button "朗读音节 챠" [ref=f3e806] [cursor=pointer]
+                  - cell "쳐 chyeo 朗读音节 쳐" [ref=f3e809]:
+                    - generic [ref=f3e810]:
+                      - generic [ref=f3e811]: 쳐
+                      - generic [ref=f3e812]: chyeo
+                      - button "朗读音节 쳐" [ref=f3e813] [cursor=pointer]
+                  - cell "쵸 chyo 朗读音节 쵸" [ref=f3e816]:
+                    - generic [ref=f3e817]:
+                      - generic [ref=f3e818]: 쵸
+                      - generic [ref=f3e819]: chyo
+                      - button "朗读音节 쵸" [ref=f3e820] [cursor=pointer]
+                  - cell "츄 chyu 朗读音节 츄" [ref=f3e823]:
+                    - generic [ref=f3e824]:
+                      - generic [ref=f3e825]: 츄
+                      - generic [ref=f3e826]: chyu
+                      - button "朗读音节 츄" [ref=f3e827] [cursor=pointer]
+                  - cell "챼 chyae 朗读音节 챼" [ref=f3e830]:
+                    - generic [ref=f3e831]:
+                      - generic [ref=f3e832]: 챼
+                      - generic [ref=f3e833]: chyae
+                      - button "朗读音节 챼" [ref=f3e834] [cursor=pointer]
+                  - cell "쳬 chye 朗读音节 쳬" [ref=f3e837]:
+                    - generic [ref=f3e838]:
+                      - generic [ref=f3e839]: 쳬
+                      - generic [ref=f3e840]: chye
+                      - button "朗读音节 쳬" [ref=f3e841] [cursor=pointer]
+                  - cell "츼 chui 朗读音节 츼" [ref=f3e844]:
+                    - generic [ref=f3e845]:
+                      - generic [ref=f3e846]: 츼
+                      - generic [ref=f3e847]: chui
+                      - button "朗读音节 츼" [ref=f3e848] [cursor=pointer]
+            - paragraph [ref=f3e851]: 点击小喇叭听韩语发音。辅音按钮播放旁注的示范音节，不把字母名称当作辅音音值。
+          - generic [ref=f3e852]:
+            - generic [ref=f3e853]:
+              - generic [ref=f3e854]:
+                - generic [ref=f3e855]: "04"
+                - heading "W 行元音 × 其他辅音" [level=3] [ref=f3e856]
+              - paragraph [ref=f3e857]: 把两个元音连起来
+            - table [ref=f3e859]:
+              - caption [ref=f3e860]: W 行元音 × 其他辅音｜横轴元音，纵轴辅音；小字为标准罗马字
+              - rowgroup [ref=f3e861]:
+                - row [ref=f3e862]:
+                  - columnheader [ref=f3e863]:
+                    - generic [ref=f3e864]: 辅音 ↓元音 →
+                  - columnheader "ㅘ wa 朗读元音 ㅘ，示范音 와" [ref=f3e865]:
+                    - generic [ref=f3e866]:
+                      - generic [ref=f3e867]: ㅘ
+                      - generic [ref=f3e868]: wa
+                      - button "朗读元音 ㅘ，示范音 와" [ref=f3e869] [cursor=pointer]
+                  - columnheader "ㅝ wo 朗读元音 ㅝ，示范音 워" [ref=f3e872]:
+                    - generic [ref=f3e873]:
+                      - generic [ref=f3e874]: ㅝ
+                      - generic [ref=f3e875]: wo
+                      - button "朗读元音 ㅝ，示范音 워" [ref=f3e876] [cursor=pointer]
+                  - columnheader "ㅟ wi 朗读元音 ㅟ，示范音 위" [ref=f3e879]:
+                    - generic [ref=f3e880]:
+                      - generic [ref=f3e881]: ㅟ
+                      - generic [ref=f3e882]: wi
+                      - button "朗读元音 ㅟ，示范音 위" [ref=f3e883] [cursor=pointer]
+                  - columnheader "ㅚ oe 朗读元音 ㅚ，示范音 외" [ref=f3e886]:
+                    - generic [ref=f3e887]:
+                      - generic [ref=f3e888]: ㅚ
+                      - generic [ref=f3e889]: oe
+                      - button "朗读元音 ㅚ，示范音 외" [ref=f3e890] [cursor=pointer]
+                  - columnheader "ㅞ we 朗读元音 ㅞ，示范音 웨" [ref=f3e893]:
+                    - generic [ref=f3e894]:
+                      - generic [ref=f3e895]: ㅞ
+                      - generic [ref=f3e896]: we
+                      - button "朗读元音 ㅞ，示范音 웨" [ref=f3e897] [cursor=pointer]
+                  - columnheader "ㅙ wae 朗读元音 ㅙ，示范音 왜" [ref=f3e900]:
+                    - generic [ref=f3e901]:
+                      - generic [ref=f3e902]: ㅙ
+                      - generic [ref=f3e903]: wae
+                      - button "朗读元音 ㅙ，示范音 왜" [ref=f3e904] [cursor=pointer]
+              - rowgroup [ref=f3e907]:
+                - row [ref=f3e908]:
+                  - rowheader "ㄴ n 朗读辅音 ㄴ，示范音 나" [ref=f3e909]:
+                    - generic [ref=f3e910]:
+                      - generic [ref=f3e911]: ㄴ
+                      - generic [ref=f3e912]: "n"
+                      - button "朗读辅音 ㄴ，示范音 나" [ref=f3e913] [cursor=pointer]
+                  - cell "놔 nwa 朗读音节 놔" [ref=f3e916]:
+                    - generic [ref=f3e917]:
+                      - generic [ref=f3e918]: 놔
+                      - generic [ref=f3e919]: nwa
+                      - button "朗读音节 놔" [ref=f3e920] [cursor=pointer]
+                  - cell "눠 nwo 朗读音节 눠" [ref=f3e923]:
+                    - generic [ref=f3e924]:
+                      - generic [ref=f3e925]: 눠
+                      - generic [ref=f3e926]: nwo
+                      - button "朗读音节 눠" [ref=f3e927] [cursor=pointer]
+                  - cell "뉘 nwi 朗读音节 뉘" [ref=f3e930]:
+                    - generic [ref=f3e931]:
+                      - generic [ref=f3e932]: 뉘
+                      - generic [ref=f3e933]: nwi
+                      - button "朗读音节 뉘" [ref=f3e934] [cursor=pointer]
+                  - cell "뇌 noe 朗读音节 뇌" [ref=f3e937]:
+                    - generic [ref=f3e938]:
+                      - generic [ref=f3e939]: 뇌
+                      - generic [ref=f3e940]: noe
+                      - button "朗读音节 뇌" [ref=f3e941] [cursor=pointer]
+                  - cell "눼 nwe 朗读音节 눼" [ref=f3e944]:
+                    - generic [ref=f3e945]:
+                      - generic [ref=f3e946]: 눼
+                      - generic [ref=f3e947]: nwe
+                      - button "朗读音节 눼" [ref=f3e948] [cursor=pointer]
+                  - cell "놰 nwae 朗读音节 놰" [ref=f3e951]:
+                    - generic [ref=f3e952]:
+                      - generic [ref=f3e953]: 놰
+                      - generic [ref=f3e954]: nwae
+                      - button "朗读音节 놰" [ref=f3e955] [cursor=pointer]
+                - row [ref=f3e958]:
+                  - rowheader "ㅁ m 朗读辅音 ㅁ，示范音 마" [ref=f3e959]:
+                    - generic [ref=f3e960]:
+                      - generic [ref=f3e961]: ㅁ
+                      - generic [ref=f3e962]: m
+                      - button "朗读辅音 ㅁ，示范音 마" [ref=f3e963] [cursor=pointer]
+                  - cell "뫄 mwa 朗读音节 뫄" [ref=f3e966]:
+                    - generic [ref=f3e967]:
+                      - generic [ref=f3e968]: 뫄
+                      - generic [ref=f3e969]: mwa
+                      - button "朗读音节 뫄" [ref=f3e970] [cursor=pointer]
+                  - cell "뭐 mwo 朗读音节 뭐" [ref=f3e973]:
+                    - generic [ref=f3e974]:
+                      - generic [ref=f3e975]: 뭐
+                      - generic [ref=f3e976]: mwo
+                      - button "朗读音节 뭐" [ref=f3e977] [cursor=pointer]
+                  - cell "뮈 mwi 朗读音节 뮈" [ref=f3e980]:
+                    - generic [ref=f3e981]:
+                      - generic [ref=f3e982]: 뮈
+                      - generic [ref=f3e983]: mwi
+                      - button "朗读音节 뮈" [ref=f3e984] [cursor=pointer]
+                  - cell "뫼 moe 朗读音节 뫼" [ref=f3e987]:
+                    - generic [ref=f3e988]:
+                      - generic [ref=f3e989]: 뫼
+                      - generic [ref=f3e990]: moe
+                      - button "朗读音节 뫼" [ref=f3e991] [cursor=pointer]
+                  - cell "뭬 mwe 朗读音节 뭬" [ref=f3e994]:
+                    - generic [ref=f3e995]:
+                      - generic [ref=f3e996]: 뭬
+                      - generic [ref=f3e997]: mwe
+                      - button "朗读音节 뭬" [ref=f3e998] [cursor=pointer]
+                  - cell "뫠 mwae 朗读音节 뫠" [ref=f3e1001]:
+                    - generic [ref=f3e1002]:
+                      - generic [ref=f3e1003]: 뫠
+                      - generic [ref=f3e1004]: mwae
+                      - button "朗读音节 뫠" [ref=f3e1005] [cursor=pointer]
+                - row [ref=f3e1008]:
+                  - rowheader "ㄹ r 朗读辅音 ㄹ，示范音 라" [ref=f3e1009]:
+                    - generic [ref=f3e1010]:
+                      - generic [ref=f3e1011]: ㄹ
+                      - generic [ref=f3e1012]: r
+                      - button "朗读辅音 ㄹ，示范音 라" [ref=f3e1013] [cursor=pointer]
+                  - cell "롸 rwa 朗读音节 롸" [ref=f3e1016]:
+                    - generic [ref=f3e1017]:
+                      - generic [ref=f3e1018]: 롸
+                      - generic [ref=f3e1019]: rwa
+                      - button "朗读音节 롸" [ref=f3e1020] [cursor=pointer]
+                  - cell "뤄 rwo 朗读音节 뤄" [ref=f3e1023]:
+                    - generic [ref=f3e1024]:
+                      - generic [ref=f3e1025]: 뤄
+                      - generic [ref=f3e1026]: rwo
+                      - button "朗读音节 뤄" [ref=f3e1027] [cursor=pointer]
+                  - cell "뤼 rwi 朗读音节 뤼" [ref=f3e1030]:
+                    - generic [ref=f3e1031]:
+                      - generic [ref=f3e1032]: 뤼
+                      - generic [ref=f3e1033]: rwi
+                      - button "朗读音节 뤼" [ref=f3e1034] [cursor=pointer]
+                  - cell "뢰 roe 朗读音节 뢰" [ref=f3e1037]:
+                    - generic [ref=f3e1038]:
+                      - generic [ref=f3e1039]: 뢰
+                      - generic [ref=f3e1040]: roe
+                      - button "朗读音节 뢰" [ref=f3e1041] [cursor=pointer]
+                  - cell "뤠 rwe 朗读音节 뤠" [ref=f3e1044]:
+                    - generic [ref=f3e1045]:
+                      - generic [ref=f3e1046]: 뤠
+                      - generic [ref=f3e1047]: rwe
+                      - button "朗读音节 뤠" [ref=f3e1048] [cursor=pointer]
+                  - cell "뢔 rwae 朗读音节 뢔" [ref=f3e1051]:
+                    - generic [ref=f3e1052]:
+                      - generic [ref=f3e1053]: 뢔
+                      - generic [ref=f3e1054]: rwae
+                      - button "朗读音节 뢔" [ref=f3e1055] [cursor=pointer]
+                - row [ref=f3e1058]:
+                  - rowheader "ㅇ 不发音 朗读辅音 ㅇ，示范音 아" [ref=f3e1059]:
+                    - generic [ref=f3e1060]:
+                      - generic [ref=f3e1061]: ㅇ
+                      - generic [ref=f3e1062]: 不发音
+                      - button "朗读辅音 ㅇ，示范音 아" [ref=f3e1063] [cursor=pointer]
+                  - cell "와 wa 朗读音节 와" [ref=f3e1066]:
+                    - generic [ref=f3e1067]:
+                      - generic [ref=f3e1068]: 와
+                      - generic [ref=f3e1069]: wa
+                      - button "朗读音节 와" [ref=f3e1070] [cursor=pointer]
+                  - cell "워 wo 朗读音节 워" [ref=f3e1073]:
+                    - generic [ref=f3e1074]:
+                      - generic [ref=f3e1075]: 워
+                      - generic [ref=f3e1076]: wo
+                      - button "朗读音节 워" [ref=f3e1077] [cursor=pointer]
+                  - cell "위 wi 朗读音节 위" [ref=f3e1080]:
+                    - generic [ref=f3e1081]:
+                      - generic [ref=f3e1082]: 위
+                      - generic [ref=f3e1083]: wi
+                      - button "朗读音节 위" [ref=f3e1084] [cursor=pointer]
+                  - cell "외 oe 朗读音节 외" [ref=f3e1087]:
+                    - generic [ref=f3e1088]:
+                      - generic [ref=f3e1089]: 외
+                      - generic [ref=f3e1090]: oe
+                      - button "朗读音节 외" [ref=f3e1091] [cursor=pointer]
+                  - cell "웨 we 朗读音节 웨" [ref=f3e1094]:
+                    - generic [ref=f3e1095]:
+                      - generic [ref=f3e1096]: 웨
+                      - generic [ref=f3e1097]: we
+                      - button "朗读音节 웨" [ref=f3e1098] [cursor=pointer]
+                  - cell "왜 wae 朗读音节 왜" [ref=f3e1101]:
+                    - generic [ref=f3e1102]:
+                      - generic [ref=f3e1103]: 왜
+                      - generic [ref=f3e1104]: wae
+                      - button "朗读音节 왜" [ref=f3e1105] [cursor=pointer]
+            - paragraph [ref=f3e1108]: 点击小喇叭听韩语发音。辅音按钮播放旁注的示范音节，不把字母名称当作辅音音值。
+  - contentinfo [ref=f3e1109]:
+    - text: 한글，慢慢读
+    - paragraph [ref=f3e1110]: 先听，再读；先读，再说。
+    - generic [ref=f3e1111]: 罗马字仅用于辅助入门，发音请以韩语语音为准。

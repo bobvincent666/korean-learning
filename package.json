@@ -1,0 +1,10 @@
+{
+  "name": "korean-learning-page",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "audio:manifest": "node tools/export-audio-manifest.js",
+    "test": "node --test tests/*.test.js"
+  }
+}

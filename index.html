@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173a32">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23183a32'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='40' fill='white'%3E%E3%85%8E%3C/text%3E%3C/svg%3E">
+  <title>한글，慢慢读｜韩语互动拼读</title>
+  <meta name="description" content="从韩文字母、拼读音节，到单词和句子。点击发音，循序学习韩语。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="韩文，慢慢读，返回顶部"><span class="brand-mark">ㅎ</span><span><b>한글，慢慢读</b><small>YOUR KOREAN PRACTICE DESK</small></span></a>
+    <nav class="top-nav" aria-label="学习区域" role="tablist">
+      <button id="tab-grid" type="button" role="tab" aria-controls="panel-grid" aria-selected="true" tabindex="0" data-tab="grid"><span>01</span> 韩文拼读</button>
+      <button id="tab-lessons" type="button" role="tab" aria-controls="panel-lessons" aria-selected="false" tabindex="-1" data-tab="lessons"><span>02</span> 单词与句子</button>
+      <button id="tab-videos" type="button" role="tab" aria-controls="panel-videos" aria-selected="false" tabindex="-1" data-tab="videos"><span>03</span> 视频</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> 零基础 · 韩语第一步</p><h1 id="hero-title">从一个音节，<br><em>读懂一句韩语。</em></h1><p class="hero-description">看字形、听发音，再把熟悉的音节放进真实的单词和句子里。每天一点，慢慢读出自己的韩语。</p><div class="hero-actions"><button type="button" class="hero-primary" data-switch="grid">开始拼读 <span aria-hidden="true">↗</span></button><button type="button" class="hero-secondary" data-switch="lessons">看看实际怎么说 <span aria-hidden="true">→</span></button></div></div>
+      <div class="hero-demo" aria-label="示范：辅音 ㄱ 加元音 ㅏ 组成 가"><div class="demo-top"><span>今日第一声</span><span class="demo-wave" aria-hidden="true">▂ ▄ ▆ ▄ ▂</span></div><div class="demo-formula"><span>ㄱ</span><i>+</i><span>ㅏ</span><i>=</i><strong>가</strong></div><div class="demo-bottom"><span>ga <small>·</small> 去：가다</span><button class="demo-sound" type="button" data-speak="가" aria-label="朗读音节 가"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12-1.5a6 6 0 0 1 0 9m2.5-11.5a9 9 0 0 1 0 14"/></svg><span>听一听</span></button></div></div>
+    </section>
+
+    <section class="workspace" aria-label="学习内容">
+      <div class="workspace-top"><div><p class="section-kicker" id="workspace-kicker">01 / SOUND TABLES</p><h2 id="workspace-title">把声音排成一张地图</h2><p id="workspace-description">先认横轴元音，再认纵轴辅音。每一个交叉格，都可以点开听。</p></div><div class="audio-controls"><label class="speed-control"><span>发音速度</span><select id="speed-select"><option value="normal">正常</option><option value="slow">慢速</option></select></label><button type="button" id="repeat-button" class="repeat-button" aria-label="重复上一次发音">↻ <span>再听一次</span></button></div></div>
+      <div id="speech-status" class="speech-status" role="status" aria-live="polite"></div>
+      <section id="panel-grid" role="tabpanel" aria-labelledby="tab-grid"><div class="panel-intro"><span class="intro-rule"></span><p>四组拼读表，共 <strong>99</strong> 个音节。浅绿色是元音，浅红色是辅音；小字是标准罗马字提示。</p></div><div class="group-list" id="grids"></div></section>
+      <section id="panel-lessons" role="tabpanel" aria-labelledby="tab-lessons" hidden><div class="panel-intro"><span class="intro-rule"></span><p>不是每个音节都要硬背成单词。先学有用的，再把它放进一句话里。</p></div><div class="lesson-list" id="lessons"></div></section>
+      <section id="panel-videos" role="tabpanel" aria-labelledby="tab-videos" hidden><div class="panel-intro"><span class="intro-rule"></span><p>跟着真实的讲解练一遍。先看字母，再练拼读，最后进入对话。</p></div><div id="video-player" class="video-player" hidden></div><div class="video-list" id="videos"></div><p class="video-note">视频来自外部教学机构。若页面内无法播放，请使用“打开原视频”。</p></section>
+    </section>
+  </main>
+  <footer class="site-footer"><span>한글，慢慢读</span><p>先听，再读；先读，再说。</p><small>罗马字仅用于辅助入门，发音请以韩语语音为准。</small></footer>
+</body>
+</html>

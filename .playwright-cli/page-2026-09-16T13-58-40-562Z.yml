@@ -1,0 +1,95 @@
+- generic [ref=f1e1]:
+  - link "跳到主要内容" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f1e3]:
+    - link "韩文，慢慢读，返回顶部" [ref=f1e4] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=f1e5]: ㅎ
+      - generic [ref=f1e6]:
+        - generic [ref=f1e7]: 한글，慢慢读
+        - generic [ref=f1e8]: YOUR KOREAN PRACTICE DESK
+    - tablist "学习区域" [ref=f1e9]:
+      - tab "01 韩文拼读" [ref=f1e10] [cursor=pointer]
+      - tab "02 单词与句子" [ref=f1e11] [cursor=pointer]
+      - tab "03 视频" [active] [selected] [ref=f1e12] [cursor=pointer]
+  - main [ref=f1e13]:
+    - region [ref=f1e14]:
+      - generic [ref=f1e15]:
+        - paragraph [ref=f1e16]: 零基础 · 韩语第一步
+        - heading [level=1] [ref=f1e18]:
+          - text: 从一个音节，
+          - emphasis [ref=f1e19]: 读懂一句韩语。
+        - paragraph [ref=f1e20]: 看字形、听发音，再把熟悉的音节放进真实的单词和句子里。每天一点，慢慢读出自己的韩语。
+        - generic [ref=f1e21]:
+          - button "开始拼读" [ref=f1e22] [cursor=pointer]: 开始拼读 ↗
+          - button "看看实际怎么说" [ref=f1e23] [cursor=pointer]: 看看实际怎么说 →
+      - generic "示范：辅音 ㄱ 加元音 ㅏ 组成 가" [ref=f1e24]:
+        - generic [ref=f1e25]:
+          - generic [ref=f1e26]: 今日第一声
+          - generic [aria-hidden] [ref=f1e27]: ▂ ▄ ▆ ▄ ▂
+        - generic [ref=f1e28]:
+          - generic [ref=f1e29]: ㄱ
+          - generic [ref=f1e30]: +
+          - generic [ref=f1e31]: ㅏ
+          - generic [ref=f1e32]: =
+          - strong [ref=f1e33]: 가
+        - generic [ref=f1e34]:
+          - generic [ref=f1e35]: ga · 去：가다
+          - button "朗读音节 가" [ref=f1e36] [cursor=pointer]
+    - region "学习内容" [ref=f1e39]:
+      - generic [ref=f1e40]:
+        - generic [ref=f1e41]:
+          - paragraph [ref=f1e42]: 03 / WATCH & PRACTICE
+          - heading "听一遍，再跟着说" [level=2] [ref=f1e1112]
+          - paragraph [ref=f1e44]: 先看韩文如何组成，再把声音放进真实对话。
+        - generic [ref=f1e45]:
+          - generic [ref=f1e46]:
+            - generic [ref=f1e47]: 发音速度
+            - combobox "发音速度" [ref=f1e48]:
+              - option "正常" [selected]
+              - option "慢速"
+          - button "重复上一次发音" [ref=f1e49] [cursor=pointer]: ↻ 再听一次
+      - status [ref=f1e50]: 当前浏览器未检测到韩语语音。请在系统语音设置中安装韩语语音，或换用支持韩语语音的浏览器。
+      - tabpanel "03 视频" [ref=f1e1113]:
+        - paragraph [ref=f1e1116]: 跟着真实的讲解练一遍。先看字母，再练拼读，最后进入对话。
+        - generic [ref=f1e1117]:
+          - article [ref=f1e1118]:
+            - generic [aria-hidden] [ref=f1e1119]:
+              - generic [ref=f1e1120]: "01"
+              - generic [ref=f1e1121]: 가나다
+            - generic [ref=f1e1122]:
+              - generic [ref=f1e1123]: 01 / 认识韩文
+              - heading "Hangeul, the Easy-to-Learn Alphabet for Everyone" [level=3] [ref=f1e1124]
+              - paragraph [ref=f1e1125]: King Sejong Institute × Arirang TV
+              - paragraph [ref=f1e1126]: 从韩文的形状和拼读方式入门。
+              - generic [ref=f1e1127]:
+                - button "在页面播放" [ref=f1e1128] [cursor=pointer]
+                - link "打开原视频 ↗" [ref=f1e1129] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=iOard-x3mKc
+          - article [ref=f1e1130]:
+            - generic [aria-hidden] [ref=f1e1131]:
+              - generic [ref=f1e1132]: "02"
+              - generic [ref=f1e1133]: 가나다
+            - generic [ref=f1e1134]:
+              - generic [ref=f1e1135]: 02 / 系统练习
+              - heading "世宗学堂线上课程" [level=3] [ref=f1e1136]
+              - paragraph [ref=f1e1137]: King Sejong Institute Foundation
+              - paragraph [ref=f1e1138]: 从入门课程继续练习字母、单词和基础会话。
+              - link "打开原视频 ↗" [ref=f1e1140] [cursor=pointer]:
+                - /url: https://www.iksi.or.kr/
+          - article [ref=f1e1141]:
+            - generic [aria-hidden] [ref=f1e1142]:
+              - generic [ref=f1e1143]: "03"
+              - generic [ref=f1e1144]: 가나다
+            - generic [ref=f1e1145]:
+              - generic [ref=f1e1146]: 03 / 基础对话
+              - 'heading "K-Chat: Conversing in Korean" [level=3] [ref=f1e1147]'
+              - paragraph [ref=f1e1148]: King Sejong Institute Foundation
+              - paragraph [ref=f1e1149]: 短视频形式练习真实对话，适合掌握基础拼读后观看。
+              - link "打开原视频 ↗" [ref=f1e1151] [cursor=pointer]:
+                - /url: https://www.ksif.or.kr/cop/bbs/selectBoardArticle.do?bbsId=BBSMSTR_000000000141&nttId=9220000005992
+        - paragraph [ref=f1e1152]: 视频来自外部教学机构。若页面内无法播放，请使用“打开原视频”。
+  - contentinfo [ref=f1e1109]:
+    - text: 한글，慢慢读
+    - paragraph [ref=f1e1110]: 先听，再读；先读，再说。
+    - generic [ref=f1e1111]: 罗马字仅用于辅助入门，发音请以韩语语音为准。
