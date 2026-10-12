@@ -75,6 +75,7 @@ const panelCopy = {
 const lessonIds = grammarLessons.map(lesson => lesson.id);
 const panels = [...document.querySelectorAll('[data-panel]')];
 const mobileCourseMenu = window.matchMedia('(max-width:1120px)');
+let currentLessonId = null;
 
 function closeCourseMenu() {
   if ($('#course-sidebar').contains(document.activeElement)) $('#course-menu-button').focus();
@@ -83,9 +84,11 @@ function closeCourseMenu() {
   $('#course-sidebar').inert = mobileCourseMenu.matches;
 }
 
-function applyRoute() {
+function applyRoute(event) {
   const route = resolveRoute(window.location.hash, lessonIds);
   const lesson = route.lessonId ? grammarLessons.find(item => item.id === route.lessonId) : null;
+  const lessonChanged = lesson && lesson.id !== currentLessonId;
+  currentLessonId = lesson?.id || null;
   const canonicalHash = `#${lesson?.id || route.page}`;
   if (window.location.hash !== canonicalHash) history.replaceState(null, '', canonicalHash);
 
@@ -118,6 +121,11 @@ function applyRoute() {
   const title = lesson ? `第 ${String(lesson.number).padStart(2, '0')} 课｜${lesson.title}` : copy[1];
   document.title = `${title}｜零基础韩语课`;
   closeCourseMenu();
+  if (event?.type === 'hashchange' && lessonChanged) {
+    const heading = $('.lesson-title h1');
+    heading.focus({ preventScroll:true });
+    heading.scrollIntoView({ behavior:scrollBehavior(), block:'start' });
+  }
 }
 
 $('#course-menu-button').addEventListener('click', () => {

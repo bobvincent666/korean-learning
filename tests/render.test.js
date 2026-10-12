@@ -67,3 +67,14 @@ test('grammar lesson renders rules, exercises, collapsed answers and neighbors',
   assert.match(html, /href="#lesson-3"/);
   assert.match(renderLessonOutline(grammarLessons[1]), /href="#subject-marker"/);
 });
+
+test('grammar lesson heading accepts programmatic focus', () => {
+  const html = renderGrammarLesson(grammarLessons[0], grammarLessons);
+  assert.match(html, /<h1 tabindex="-1">礼貌表达与“去某地”<\/h1>/);
+});
+
+test('polite lesson explains the vowel contraction in 가요', () => {
+  const html = renderGrammarLesson(grammarLessons[0], grammarLessons);
+  assert.match(html, /가 \+ 아요 → 가요/);
+  assert.match(html, /相邻元音缩合/);
+});

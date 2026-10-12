@@ -57,7 +57,7 @@ export function renderGrammarLesson(lesson, lessons) {
   const next = lessons[index + 1];
 
   return `<article class="grammar-lesson">
-    <header class="lesson-title"><span>${lessonLabel(lesson)}</span><h1>${escapeHtml(lesson.title)}</h1><p>${escapeHtml(lesson.summary)}</p></header>
+    <header class="lesson-title"><span>${lessonLabel(lesson)}</span><h1 tabindex="-1">${escapeHtml(lesson.title)}</h1><p>${escapeHtml(lesson.summary)}</p></header>
     <section class="lesson-goals" id="lesson-goals"><h2>本课学什么</h2><ul>${lesson.goals.map(goal => `<li>${escapeHtml(goal)}</li>`).join('')}</ul></section>
     ${sections}
     <section class="exercise-section" id="lesson-exercises"><h2>练习题</h2><ol>${questions}</ol><details class="answer-box"><summary>查看参考答案</summary><ol>${answers}</ol></details></section>
