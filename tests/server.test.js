@@ -10,7 +10,12 @@ test('local server returns the learning page and JS modules', async () => {
     const base = `http://127.0.0.1:${server.address().port}`;
     const page = await fetch(base);
     assert.equal(page.status, 200);
-    assert.match(await page.text(), /韩文拼读/);
+    const html = await page.text();
+    assert.match(html, /零基础韩语课/);
+    assert.match(html, /从韩文字母、发音到日常语法与练习/);
+    assert.match(html, /href="\.\/styles\.css"/);
+    assert.match(html, /src="\.\/app\.js"/);
+    assert.match(html, /id="grammar-nav"/);
     const module = await fetch(`${base}/data.js`);
     assert.equal(module.status, 200);
     assert.match(module.headers.get('content-type'), /javascript/);

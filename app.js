@@ -1,12 +1,23 @@
-import { groups, videos } from './data.js';
-import { renderGrid, renderLessons, renderVideos } from './render.js';
+import { grammarLessons, groups, videos } from './data.js';
+import {
+  renderGrammarIndex,
+  renderGrammarLesson,
+  renderGrammarNav,
+  renderGrid,
+  renderLessonOutline,
+  renderLessons,
+  renderVideos
+} from './render.js';
+import { resolveRoute } from './route.js';
 import { createSpeaker } from './speech.js';
 import { createAudioSpeaker } from './audio-player.js';
 
 const $ = selector => document.querySelector(selector);
+const scrollBehavior = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 $('#grids').innerHTML = groups.map(renderGrid).join('');
 $('#lessons').innerHTML = groups.map(renderLessons).join('');
 $('#videos').innerHTML = renderVideos(videos);
+$('#grammar-nav').innerHTML = renderGrammarNav(grammarLessons);
 
 const browserSpeaker = createSpeaker(window.speechSynthesis, window.SpeechSynthesisUtterance);
 let audioItems = {};
@@ -53,38 +64,91 @@ if (window.speechSynthesis) {
 }
 updateVoiceStatus();
 
-const tabs = [...document.querySelectorAll('[role="tab"]')];
 const panelCopy = {
-  grid: ['01 / SOUND TABLES', '把声音排成一张地图', '先认横轴元音，再认纵轴辅音。每一个交叉格，都可以点开听。'],
-  lessons: ['02 / WORDS & SENTENCES', '从一个字，走进一句话', '挑真实常用的词，顺着音节一步步读到完整表达。'],
-  videos: ['03 / WATCH & PRACTICE', '听一遍，再跟着说', '先看韩文如何组成，再把声音放进真实对话。']
+  home: ['START HERE', '从零开始，建立你的韩语课程路径', '先学字母和发音，再进入单词、句子与日常语法。'],
+  hangul: ['01 / HANGUL', '韩文字母与拼读', '先认横轴元音，再认纵轴辅音。每一个交叉格都可以点开听。'],
+  words: ['02 / WORDS & SENTENCES', '从一个字，走进一句话', '挑真实常用的词，顺着音节一步步读到完整表达。'],
+  grammar: ['03 / GRAMMAR', '日常语法课程', '每课只学少量规则，并马上用练习巩固。'],
+  videos: ['04 / WATCH & PRACTICE', '视频学习', '先看韩文如何组成，再把声音放进真实对话。']
 };
 
-function activateTab(name, focus = false) {
-  for (const tab of tabs) {
-    const active = tab.dataset.tab === name;
-    tab.setAttribute('aria-selected', String(active));
-    tab.tabIndex = active ? 0 : -1;
-    if (active && focus) tab.focus();
-    $(`#panel-${tab.dataset.tab}`).hidden = !active;
-  }
-  const [kicker, title, description] = panelCopy[name];
-  $('#workspace-kicker').textContent = kicker;
-  $('#workspace-title').textContent = title;
-  $('#workspace-description').textContent = description;
+const lessonIds = grammarLessons.map(lesson => lesson.id);
+const panels = [...document.querySelectorAll('[data-panel]')];
+const mobileCourseMenu = window.matchMedia('(max-width:1120px)');
+
+function closeCourseMenu() {
+  if ($('#course-sidebar').contains(document.activeElement)) $('#course-menu-button').focus();
+  $('#course-shell').classList.remove('menu-open');
+  $('#course-menu-button').setAttribute('aria-expanded', 'false');
+  $('#course-sidebar').inert = mobileCourseMenu.matches;
 }
 
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => activateTab(tab.dataset.tab));
-  tab.addEventListener('keydown', event => {
-    if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
-    event.preventDefault();
-    const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-    activateTab(tabs[next].dataset.tab, true);
+function applyRoute() {
+  const route = resolveRoute(window.location.hash, lessonIds);
+  const lesson = route.lessonId ? grammarLessons.find(item => item.id === route.lessonId) : null;
+  const canonicalHash = `#${lesson?.id || route.page}`;
+  if (window.location.hash !== canonicalHash) history.replaceState(null, '', canonicalHash);
+
+  for (const panel of panels) panel.hidden = panel.dataset.panel !== route.page;
+  document.querySelectorAll('.top-nav a').forEach(link => {
+    if (link.dataset.page === route.page) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
   });
+  document.querySelectorAll('[data-route]').forEach(link => {
+    link.classList.toggle('is-active', link.getAttribute('href') === canonicalHash);
+  });
+
+  const copy = panelCopy[route.page];
+  $('#workspace-kicker').textContent = lesson ? `第 ${String(lesson.number).padStart(2, '0')} 课` : copy[0];
+  $('#workspace-title').textContent = lesson ? lesson.title : copy[1];
+  $('#workspace-description').textContent = lesson ? lesson.summary : copy[2];
+  $('#workspace-header').hidden = route.page === 'home' || Boolean(lesson);
+
+  const grammarContent = $('#grammar-content');
+  grammarContent.innerHTML = lesson
+    ? renderGrammarLesson(lesson, grammarLessons)
+    : renderGrammarIndex(grammarLessons);
+  $('#page-outline').innerHTML = lesson ? renderLessonOutline(lesson) : '';
+  $('#page-outline').hidden = !lesson;
+  $('#course-shell').classList.toggle('has-outline', Boolean(lesson));
+
+  const hasAudioControls = route.page === 'hangul' || route.page === 'words';
+  $('#audio-controls').hidden = !hasAudioControls;
+  $('#speech-status').hidden = !hasAudioControls;
+  const title = lesson ? `第 ${String(lesson.number).padStart(2, '0')} 课｜${lesson.title}` : copy[1];
+  document.title = `${title}｜零基础韩语课`;
+  closeCourseMenu();
+}
+
+$('#course-menu-button').addEventListener('click', () => {
+  if ($('#course-shell').classList.contains('menu-open')) return closeCourseMenu();
+  $('#course-shell').classList.add('menu-open');
+  $('#course-menu-button').setAttribute('aria-expanded', 'true');
+  $('#course-sidebar').inert = false;
+  $('#course-sidebar a').focus();
 });
+$('#course-backdrop').addEventListener('click', closeCourseMenu);
+mobileCourseMenu.addEventListener('change', closeCourseMenu);
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeCourseMenu();
+  if (event.key === 'Tab' && $('#course-shell').classList.contains('menu-open')) {
+    const links = [...$('#course-sidebar').querySelectorAll('a')];
+    const edge = event.shiftKey ? links[0] : links.at(-1);
+    if (document.activeElement === edge || !$('#course-sidebar').contains(document.activeElement)) {
+      event.preventDefault();
+      (event.shiftKey ? links.at(-1) : links[0]).focus();
+    }
+  }
+});
+window.addEventListener('hashchange', applyRoute);
 
 document.addEventListener('click', event => {
+  if (event.target.closest('.skip-link')) {
+    event.preventDefault();
+    $('#main').focus();
+    return;
+  }
+  if (event.target.closest('[data-route]')) closeCourseMenu();
   const soundButton = event.target.closest('[data-speak]');
   if (soundButton) {
     const played = speaker.speak(soundButton.dataset.speak, {
@@ -100,16 +164,17 @@ document.addEventListener('click', event => {
     else updateVoiceStatus();
     return;
   }
-  const switchButton = event.target.closest('[data-switch]');
-  if (switchButton) {
-    activateTab(switchButton.dataset.switch);
-    $('.workspace').scrollIntoView({ behavior:'smooth', block:'start' });
+  const outlineLink = event.target.closest('[data-outline]');
+  if (outlineLink) {
+    event.preventDefault();
+    document.getElementById(outlineLink.dataset.outline)?.scrollIntoView({ behavior:scrollBehavior(), block:'start' });
     return;
   }
   const gridButton = event.target.closest('[data-grid]');
   if (gridButton) {
-    activateTab('grid');
-    $(`#grid-${gridButton.dataset.grid}`).scrollIntoView({ behavior:'smooth', block:'start' });
+    event.preventDefault();
+    window.location.hash = 'hangul';
+    requestAnimationFrame(() => $(`#grid-${gridButton.dataset.grid}`).scrollIntoView({ behavior:scrollBehavior(), block:'start' }));
     return;
   }
   const embedButton = event.target.closest('[data-embed]');
@@ -124,7 +189,7 @@ document.addEventListener('click', event => {
     frame.allowFullscreen = true;
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
     player.append(frame);
-    player.scrollIntoView({ behavior:'smooth', block:'center' });
+    player.scrollIntoView({ behavior:scrollBehavior(), block:'center' });
   }
 });
 
@@ -135,3 +200,5 @@ $('#repeat-button').addEventListener('click', () => {
   }
   else showStatus('正在重复上一段韩语。');
 });
+
+applyRoute();
