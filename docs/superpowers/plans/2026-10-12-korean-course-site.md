@@ -305,12 +305,11 @@ git commit -m "feat: add beginner Korean grammar lessons"
 
 ---
 
-### Task 2: Add tested hash routing and wire the course application
+### Task 2: Add tested hash routing
 
 **Files:**
 - Create: `route.js`
 - Create: `tests/route.test.js`
-- Modify: `app.js`
 
 **Interfaces:**
 - `resolveRoute(hash, lessonIds)` returns `{page, lessonId}`.
@@ -384,125 +383,7 @@ node --test tests/route.test.js
 
 Expected: all three route tests pass.
 
-- [ ] **Step 5: Replace tab state in `app.js` with hash-route state**
-
-Update the imports:
-
-```js
-import { grammarLessons, groups, videos } from './data.js';
-import {
-  renderGrammarIndex,
-  renderGrammarLesson,
-  renderGrammarNav,
-  renderGrid,
-  renderLessonOutline,
-  renderLessons,
-  renderVideos
-} from './render.js';
-import { resolveRoute } from './route.js';
-```
-
-After the existing grid/word/video rendering, add:
-
-```js
-$('#grammar-nav').innerHTML = renderGrammarNav(grammarLessons);
-```
-
-Delete the existing `tabs`, `panelCopy`, `activateTab`, tab click, and tab keyboard blocks. Replace them with:
-
-```js
-const panelCopy = {
-  home: ['START HERE', '从零开始，建立你的韩语课程路径', '先学字母和发音，再进入单词、句子与日常语法。'],
-  hangul: ['01 / HANGUL', '韩文字母与拼读', '先认横轴元音，再认纵轴辅音。每一个交叉格都可以点开听。'],
-  words: ['02 / WORDS & SENTENCES', '从一个字，走进一句话', '挑真实常用的词，顺着音节一步步读到完整表达。'],
-  grammar: ['03 / GRAMMAR', '日常语法课程', '每课只学少量规则，并马上用练习巩固。'],
-  videos: ['04 / WATCH & PRACTICE', '视频学习', '先看韩文如何组成，再把声音放进真实对话。']
-};
-
-const lessonIds = grammarLessons.map(lesson => lesson.id);
-const panels = [...document.querySelectorAll('[data-panel]')];
-
-function closeCourseMenu() {
-  $('#course-shell').classList.remove('menu-open');
-  $('#course-menu-button').setAttribute('aria-expanded', 'false');
-}
-
-function applyRoute() {
-  const route = resolveRoute(window.location.hash, lessonIds);
-  const lesson = route.lessonId ? grammarLessons.find(item => item.id === route.lessonId) : null;
-  const canonicalHash = `#${lesson?.id || route.page}`;
-  if (window.location.hash !== canonicalHash) history.replaceState(null, '', canonicalHash);
-
-  for (const panel of panels) panel.hidden = panel.dataset.panel !== route.page;
-  document.querySelectorAll('.top-nav a').forEach(link => {
-    if (link.dataset.page === route.page) link.setAttribute('aria-current', 'page');
-    else link.removeAttribute('aria-current');
-  });
-  document.querySelectorAll('[data-route]').forEach(link => {
-    link.classList.toggle('is-active', link.getAttribute('href') === canonicalHash);
-  });
-
-  const copy = panelCopy[route.page];
-  $('#workspace-kicker').textContent = lesson ? `第 ${String(lesson.number).padStart(2, '0')} 课` : copy[0];
-  $('#workspace-title').textContent = lesson ? lesson.title : copy[1];
-  $('#workspace-description').textContent = lesson ? lesson.summary : copy[2];
-  $('#workspace-header').hidden = route.page === 'home' || Boolean(lesson);
-
-  const grammarContent = $('#grammar-content');
-  grammarContent.innerHTML = lesson
-    ? renderGrammarLesson(lesson, grammarLessons)
-    : renderGrammarIndex(grammarLessons);
-  $('#page-outline').innerHTML = lesson ? renderLessonOutline(lesson) : '';
-  $('#page-outline').hidden = !lesson;
-  $('#course-shell').classList.toggle('has-outline', Boolean(lesson));
-
-  const hasAudioControls = route.page === 'hangul' || route.page === 'words';
-  $('#audio-controls').hidden = !hasAudioControls;
-  $('#speech-status').hidden = !hasAudioControls;
-  document.title = `${lesson ? `${lessonLabelForTitle(lesson)}｜${lesson.title}` : copy[1]}｜零基础韩语课`;
-  closeCourseMenu();
-}
-
-function lessonLabelForTitle(lesson) {
-  return `第 ${String(lesson.number).padStart(2, '0')} 课`;
-}
-
-$('#course-menu-button').addEventListener('click', () => {
-  const open = $('#course-shell').classList.toggle('menu-open');
-  $('#course-menu-button').setAttribute('aria-expanded', String(open));
-});
-$('#course-backdrop').addEventListener('click', closeCourseMenu);
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeCourseMenu();
-});
-window.addEventListener('hashchange', applyRoute);
-```
-
-In the delegated click handler, remove the `data-switch` branch and replace the `data-grid` branch with:
-
-```js
-  const outlineLink = event.target.closest('[data-outline]');
-  if (outlineLink) {
-    event.preventDefault();
-    document.getElementById(outlineLink.dataset.outline)?.scrollIntoView({ behavior:'smooth', block:'start' });
-    return;
-  }
-  const gridButton = event.target.closest('[data-grid]');
-  if (gridButton) {
-    event.preventDefault();
-    window.location.hash = 'hangul';
-    requestAnimationFrame(() => $(`#grid-${gridButton.dataset.grid}`).scrollIntoView({ behavior:'smooth', block:'start' }));
-    return;
-  }
-```
-
-At the end of `app.js`, call:
-
-```js
-applyRoute();
-```
-
-- [ ] **Step 6: Run all JavaScript tests**
+- [ ] **Step 5: Run all JavaScript tests**
 
 Run:
 
@@ -512,11 +393,11 @@ npm test
 
 Expected: all tests pass; no audio manifest count changes because grammar lessons add no sound buttons.
 
-- [ ] **Step 7: Commit routing and application wiring**
+- [ ] **Step 6: Commit the route resolver**
 
 ```powershell
-git add route.js tests/route.test.js app.js
-git commit -m "feat: add hash navigation for Korean courses"
+git add route.js tests/route.test.js
+git commit -m "feat: add Korean course hash routing"
 ```
 
 ---
@@ -524,6 +405,7 @@ git commit -m "feat: add hash navigation for Korean courses"
 ### Task 3: Build the document-style course shell and responsive layout
 
 **Files:**
+- Modify: `app.js`
 - Modify: `index.html`
 - Modify: `styles.css`
 - Modify: `tests/server.test.js`
@@ -557,7 +439,7 @@ Run:
 node --test tests/server.test.js
 ```
 
-Expected: failure because the current title is `한글，慢慢读` and no grammar lesson link exists.
+Expected: failure because the current title is `한글，慢慢读` and the course directory container does not exist.
 
 - [ ] **Step 3: Replace the page shell in `index.html`**
 
@@ -640,7 +522,122 @@ Replace the `<body>` content with the complete shell below:
 <footer class="site-footer"><span>零基础韩语课</span><p>先听，再读；先读，再说。</p><small>罗马字仅用于辅助入门，发音请以韩语语音为准。</small></footer>
 ```
 
-- [ ] **Step 4: Replace structural CSS and add course/grammar styles**
+- [ ] **Step 4: Replace tab state in `app.js` with hash-route state**
+
+Update the imports:
+
+```js
+import { grammarLessons, groups, videos } from './data.js';
+import {
+  renderGrammarIndex,
+  renderGrammarLesson,
+  renderGrammarNav,
+  renderGrid,
+  renderLessonOutline,
+  renderLessons,
+  renderVideos
+} from './render.js';
+import { resolveRoute } from './route.js';
+```
+
+After the existing grid/word/video rendering, add:
+
+```js
+$('#grammar-nav').innerHTML = renderGrammarNav(grammarLessons);
+```
+
+Delete the existing `tabs`, `panelCopy`, `activateTab`, tab click, and tab keyboard blocks. Replace them with:
+
+```js
+const panelCopy = {
+  home: ['START HERE', '从零开始，建立你的韩语课程路径', '先学字母和发音，再进入单词、句子与日常语法。'],
+  hangul: ['01 / HANGUL', '韩文字母与拼读', '先认横轴元音，再认纵轴辅音。每一个交叉格都可以点开听。'],
+  words: ['02 / WORDS & SENTENCES', '从一个字，走进一句话', '挑真实常用的词，顺着音节一步步读到完整表达。'],
+  grammar: ['03 / GRAMMAR', '日常语法课程', '每课只学少量规则，并马上用练习巩固。'],
+  videos: ['04 / WATCH & PRACTICE', '视频学习', '先看韩文如何组成，再把声音放进真实对话。']
+};
+
+const lessonIds = grammarLessons.map(lesson => lesson.id);
+const panels = [...document.querySelectorAll('[data-panel]')];
+
+function closeCourseMenu() {
+  $('#course-shell').classList.remove('menu-open');
+  $('#course-menu-button').setAttribute('aria-expanded', 'false');
+}
+
+function applyRoute() {
+  const route = resolveRoute(window.location.hash, lessonIds);
+  const lesson = route.lessonId ? grammarLessons.find(item => item.id === route.lessonId) : null;
+  const canonicalHash = `#${lesson?.id || route.page}`;
+  if (window.location.hash !== canonicalHash) history.replaceState(null, '', canonicalHash);
+
+  for (const panel of panels) panel.hidden = panel.dataset.panel !== route.page;
+  document.querySelectorAll('.top-nav a').forEach(link => {
+    if (link.dataset.page === route.page) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+  document.querySelectorAll('[data-route]').forEach(link => {
+    link.classList.toggle('is-active', link.getAttribute('href') === canonicalHash);
+  });
+
+  const copy = panelCopy[route.page];
+  $('#workspace-kicker').textContent = lesson ? `第 ${String(lesson.number).padStart(2, '0')} 课` : copy[0];
+  $('#workspace-title').textContent = lesson ? lesson.title : copy[1];
+  $('#workspace-description').textContent = lesson ? lesson.summary : copy[2];
+  $('#workspace-header').hidden = route.page === 'home' || Boolean(lesson);
+
+  const grammarContent = $('#grammar-content');
+  grammarContent.innerHTML = lesson
+    ? renderGrammarLesson(lesson, grammarLessons)
+    : renderGrammarIndex(grammarLessons);
+  $('#page-outline').innerHTML = lesson ? renderLessonOutline(lesson) : '';
+  $('#page-outline').hidden = !lesson;
+  $('#course-shell').classList.toggle('has-outline', Boolean(lesson));
+
+  const hasAudioControls = route.page === 'hangul' || route.page === 'words';
+  $('#audio-controls').hidden = !hasAudioControls;
+  $('#speech-status').hidden = !hasAudioControls;
+  const title = lesson ? `第 ${String(lesson.number).padStart(2, '0')} 课｜${lesson.title}` : copy[1];
+  document.title = `${title}｜零基础韩语课`;
+  closeCourseMenu();
+}
+
+$('#course-menu-button').addEventListener('click', () => {
+  const open = $('#course-shell').classList.toggle('menu-open');
+  $('#course-menu-button').setAttribute('aria-expanded', String(open));
+});
+$('#course-backdrop').addEventListener('click', closeCourseMenu);
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeCourseMenu();
+});
+window.addEventListener('hashchange', applyRoute);
+```
+
+In the delegated click handler, remove the `data-switch` branch and replace the `data-grid` branch with:
+
+```js
+  const outlineLink = event.target.closest('[data-outline]');
+  if (outlineLink) {
+    event.preventDefault();
+    document.getElementById(outlineLink.dataset.outline)?.scrollIntoView({ behavior:'smooth', block:'start' });
+    return;
+  }
+  const gridButton = event.target.closest('[data-grid]');
+  if (gridButton) {
+    event.preventDefault();
+    window.location.hash = 'hangul';
+    requestAnimationFrame(() => $(`#grid-${gridButton.dataset.grid}`).scrollIntoView({ behavior:'smooth', block:'start' }));
+    return;
+  }
+```
+
+At the end of `app.js`, call:
+
+```js
+applyRoute();
+```
+
+- [ ] **Step 5: Replace structural CSS and add course/grammar styles**
 
 Retain the existing color variables, reset, grid-table, word-card, video-card, audio-button, and footer rules. Replace the current header/hero/workspace responsive layout rules with:
 
@@ -664,7 +661,7 @@ Retain the existing color variables, reset, grid-table, word-card, video-card, a
 
 Remove obsolete rules that assume `.workspace` wraps the whole page or that `.top-nav` contains `<button>` elements. Keep one existing `prefers-reduced-motion` block and merge the drawer transition into it.
 
-- [ ] **Step 5: Run the server and full test suites**
+- [ ] **Step 6: Run the server and full test suites**
 
 Run:
 
@@ -675,7 +672,7 @@ npm test
 
 Expected: all tests pass, including 149 audio assets.
 
-- [ ] **Step 6: Perform browser verification**
+- [ ] **Step 7: Perform browser verification**
 
 Run:
 
@@ -695,10 +692,10 @@ Open `http://127.0.0.1:8765/` and verify:
 - At 390 px width, the directory opens, closes from the backdrop, closes with Escape, and closes after selecting a route.
 - Browser console has no errors.
 
-- [ ] **Step 7: Commit the layout**
+- [ ] **Step 8: Commit the layout**
 
 ```powershell
-git add index.html styles.css tests/server.test.js
+git add app.js index.html styles.css tests/server.test.js
 git commit -m "feat: build responsive Korean course layout"
 ```
 
