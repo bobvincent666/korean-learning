@@ -27,3 +27,47 @@ export function renderLessons(group) {
 export function renderVideos(videos) {
   return videos.map((video, index) => `<article class="video-card"><div class="video-art video-art-${index + 1}" aria-hidden="true"><span>${String(index + 1).padStart(2,'0')}</span><b>가나다</b></div><div class="video-copy"><span class="video-stage">${video.stage}</span><h3>${video.title}</h3><p class="video-source">${video.source}</p><p class="video-description">${video.description}</p><div class="video-actions">${video.embed ? `<button type="button" class="primary-small" data-embed="${escapeHtml(video.embed)}" data-title="${escapeHtml(video.title)}">在页面播放</button>` : ''}<a href="${escapeHtml(video.url)}" target="_blank" rel="noopener noreferrer">打开原视频 ↗</a></div></div></article>`).join('');
 }
+
+const lessonLabel = lesson => `第 ${String(lesson.number).padStart(2, '0')} 课`;
+
+export function renderGrammarNav(lessons) {
+  return lessons.map(lesson =>
+    `<a class="course-link" href="#${escapeHtml(lesson.id)}" data-route>${lessonLabel(lesson)}<span>${escapeHtml(lesson.title)}</span></a>`
+  ).join('');
+}
+
+export function renderGrammarIndex(lessons) {
+  return `<div class="grammar-index">${lessons.map(lesson =>
+    `<a class="grammar-index-card" href="#${escapeHtml(lesson.id)}" data-route><span>${lessonLabel(lesson)}</span><h3>${escapeHtml(lesson.title)}</h3><p>${escapeHtml(lesson.summary)}</p><b>开始学习 →</b></a>`
+  ).join('')}</div>`;
+}
+
+export function renderGrammarLesson(lesson, lessons) {
+  const index = lessons.findIndex(item => item.id === lesson.id);
+  const sections = lesson.sections.map(section => `
+    <section class="grammar-section" id="${escapeHtml(section.id)}">
+      <h2>${escapeHtml(section.title)}</h2>
+      <p>${escapeHtml(section.explanation)}</p>
+      <ul class="rule-list">${section.rules.map(rule => `<li>${escapeHtml(rule)}</li>`).join('')}</ul>
+      <div class="example-list">${section.examples.map(example => `<div class="grammar-example"><b lang="ko">${escapeHtml(example.ko)}</b><span>${escapeHtml(example.zh)}</span></div>`).join('')}</div>
+    </section>`).join('');
+  const questions = lesson.exercises.map((exercise, exerciseIndex) => `<li><span>${exerciseIndex + 1}.</span>${escapeHtml(exercise.question)}</li>`).join('');
+  const answers = lesson.exercises.map((exercise, exerciseIndex) => `<li><span>${exerciseIndex + 1}.</span>${escapeHtml(exercise.answer)}</li>`).join('');
+  const previous = lessons[index - 1];
+  const next = lessons[index + 1];
+
+  return `<article class="grammar-lesson">
+    <header class="lesson-title"><span>${lessonLabel(lesson)}</span><h1>${escapeHtml(lesson.title)}</h1><p>${escapeHtml(lesson.summary)}</p></header>
+    <section class="lesson-goals" id="lesson-goals"><h2>本课学什么</h2><ul>${lesson.goals.map(goal => `<li>${escapeHtml(goal)}</li>`).join('')}</ul></section>
+    ${sections}
+    <section class="exercise-section" id="lesson-exercises"><h2>练习题</h2><ol>${questions}</ol><details class="answer-box"><summary>查看参考答案</summary><ol>${answers}</ol></details></section>
+    <nav class="lesson-pagination" aria-label="课程前后导航">
+      ${previous ? `<a href="#${previous.id}" data-route>← ${lessonLabel(previous)}<span>${escapeHtml(previous.title)}</span></a>` : '<span></span>'}
+      ${next ? `<a href="#${next.id}" data-route>${lessonLabel(next)} →<span>${escapeHtml(next.title)}</span></a>` : '<span></span>'}
+    </nav>
+  </article>`;
+}
+
+export function renderLessonOutline(lesson) {
+  return `<p>本课目录</p><a href="#lesson-goals" data-outline="lesson-goals">本课学什么</a>${lesson.sections.map(section => `<a href="#${escapeHtml(section.id)}" data-outline="${escapeHtml(section.id)}">${escapeHtml(section.title.replace(/^\d+\.\s*/, ''))}</a>`).join('')}<a href="#lesson-exercises" data-outline="lesson-exercises">练习题</a>`;
+}
