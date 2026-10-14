@@ -19,6 +19,15 @@ test('local server returns the learning page and JS modules', async () => {
     const module = await fetch(`${base}/data.js`);
     assert.equal(module.status, 200);
     assert.match(module.headers.get('content-type'), /javascript/);
+    const courseModule = await fetch(`${base}/course-data.js`);
+    assert.equal(courseModule.status, 200);
+    assert.match(await courseModule.text(), /lesson-5/);
+    const courseSource = await fetch(`${base}/courses/${encodeURIComponent('02 语法 日常生活.md')}`);
+    assert.equal(courseSource.status, 200);
+    assert.match(await courseSource.text(), /练习五/);
+    const chart = await fetch(`${base}/courses/image/Pasted%20image%2020261008223023.png`);
+    assert.equal(chart.status, 200);
+    assert.match(chart.headers.get('content-type'), /image\/png/);
     const manifest = await fetch(`${base}/audio/manifest.json`);
     assert.equal(manifest.status, 200);
     assert.match(manifest.headers.get('content-type'), /application\/json/);

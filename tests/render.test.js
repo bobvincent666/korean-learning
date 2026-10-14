@@ -36,16 +36,17 @@ test('video cards retain original link and do not autoplay', () => {
   assert.match(html, /打开原视频/);
 });
 
-test('grammar data contains three explicitly named beginner lessons', () => {
-  assert.deepEqual(grammarLessons.map(lesson => lesson.id), ['lesson-1', 'lesson-2', 'lesson-3']);
+test('course data contains the five numbered Korea source notes', () => {
+  assert.deepEqual(grammarLessons.map(lesson => lesson.id), ['lesson-1', 'lesson-2', 'lesson-3', 'lesson-4', 'lesson-5']);
   assert.deepEqual(grammarLessons.map(lesson => lesson.title), [
-    '礼貌表达与“去某地”',
-    '谁在哪里？主语与位置表达',
-    '在哪里做过什么？场所与过去时'
+    '音标',
+    '语法 日常生活',
+    '语法 主语助词',
+    '场所助词',
+    '天气与四季：안 否定与 그리고 连接'
   ]);
-  assert.ok(grammarLessons.every(lesson => lesson.goals.length > 0));
-  assert.ok(grammarLessons.every(lesson => lesson.sections.length > 0));
-  assert.ok(grammarLessons.every(lesson => lesson.exercises.length > 0));
+  assert.ok(grammarLessons.every(lesson => lesson.html.length > 0 && lesson.source));
+  assert.ok(grammarLessons.slice(1).every(lesson => lesson.html.includes('查看参考答案')));
 });
 
 test('grammar navigation and index are generated from lesson data', () => {
@@ -53,28 +54,27 @@ test('grammar navigation and index are generated from lesson data', () => {
   const index = renderGrammarIndex(grammarLessons);
   assert.match(nav, /href="#lesson-1"/);
   assert.match(nav, /第 03 课/);
-  assert.match(index, /礼貌表达与“去某地”/);
-  assert.equal((index.match(/class="grammar-index-card"/g) || []).length, 3);
+  assert.match(index, /语法 日常生活/);
+  assert.equal((index.match(/class="grammar-index-card"/g) || []).length, 5);
 });
 
 test('grammar lesson renders rules, exercises, collapsed answers and neighbors', () => {
-  const html = renderGrammarLesson(grammarLessons[1], grammarLessons);
-  assert.match(html, /第 02 课/);
-  assert.match(html, /id="subject-marker"/);
-  assert.match(html, /<details class="answer-box">/);
+  const html = renderGrammarLesson(grammarLessons[2], grammarLessons);
+  assert.match(html, /第 03 课/);
+  assert.match(html, /id="course-answers"/);
+  assert.match(html, /<details class="answer-box" id="course-answers">/);
   assert.match(html, /<summary>查看参考答案<\/summary>/);
-  assert.match(html, /href="#lesson-1"/);
-  assert.match(html, /href="#lesson-3"/);
-  assert.match(renderLessonOutline(grammarLessons[1]), /href="#subject-marker"/);
+  assert.match(html, /href="#lesson-2"/);
+  assert.match(html, /href="#lesson-4"/);
+  assert.match(renderLessonOutline(grammarLessons[2]), /data-outline="course-answers"/);
 });
 
 test('grammar lesson heading accepts programmatic focus', () => {
   const html = renderGrammarLesson(grammarLessons[0], grammarLessons);
-  assert.match(html, /<h1 tabindex="-1">礼貌表达与“去某地”<\/h1>/);
+  assert.match(html, /<h1 tabindex="-1">音标<\/h1>/);
 });
 
 test('polite lesson explains the vowel contraction in 가요', () => {
-  const html = renderGrammarLesson(grammarLessons[0], grammarLessons);
+  const html = renderGrammarLesson(grammarLessons[1], grammarLessons);
   assert.match(html, /가 \+ 아요 → 가요/);
-  assert.match(html, /相邻元音缩合/);
 });

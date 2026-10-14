@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "audio:manifest": "node tools/export-audio-manifest.js",
+    "courses:sync": "python tools/sync-courses.py",
     "test": "node --test tests/*.test.js"
   }
 }

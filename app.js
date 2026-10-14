@@ -18,6 +18,8 @@ $('#grids').innerHTML = groups.map(renderGrid).join('');
 $('#lessons').innerHTML = groups.map(renderLessons).join('');
 $('#videos').innerHTML = renderVideos(videos);
 $('#grammar-nav').innerHTML = renderGrammarNav(grammarLessons);
+$('#course-home-list').innerHTML = renderGrammarIndex(grammarLessons);
+$('.course-overview-heading h2').textContent = `按顺序学习 · ${grammarLessons.length} 节课程`;
 
 const browserSpeaker = createSpeaker(window.speechSynthesis, window.SpeechSynthesisUtterance);
 let audioItems = {};
@@ -68,7 +70,7 @@ const panelCopy = {
   home: ['START HERE', '从零开始，建立你的韩语课程路径', '先学字母和发音，再进入单词、句子与日常语法。'],
   hangul: ['01 / HANGUL', '韩文字母与拼读', '先认横轴元音，再认纵轴辅音。每一个交叉格都可以点开听。'],
   words: ['02 / WORDS & SENTENCES', '从一个字，走进一句话', '挑真实常用的词，顺着音节一步步读到完整表达。'],
-  grammar: ['03 / GRAMMAR', '日常语法课程', '每课只学少量规则，并马上用练习巩固。'],
+  grammar: ['KOREA / COURSES', '完整课程目录', '按本地 Korea 笔记的编号学习，课程原文、练习和答案全部保留。'],
   videos: ['04 / WATCH & PRACTICE', '视频学习', '先看韩文如何组成，再把声音放进真实对话。']
 };
 

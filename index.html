@@ -24,7 +24,7 @@
     <a href="#home" data-page="home" data-route>课程首页</a>
     <a href="#hangul" data-page="hangul" data-route>韩文字母</a>
     <a href="#words" data-page="words" data-route>单词与句子</a>
-    <a href="#grammar" data-page="grammar" data-route>语法课程</a>
+    <a href="#grammar" data-page="grammar" data-route>课程目录</a>
     <a href="#videos" data-page="videos" data-route>视频学习</a>
   </nav>
   <button id="course-menu-button" class="course-menu-button" type="button" aria-controls="course-sidebar" aria-expanded="false">课程目录</button>
@@ -35,7 +35,7 @@
   <aside id="course-sidebar" class="course-sidebar" aria-label="课程目录">
     <div class="sidebar-group"><p>开始学习</p><a class="course-link" href="#home" data-route>课程首页</a></div>
     <div class="sidebar-group"><p>入门基础</p><a class="course-link" href="#hangul" data-route>韩文字母与拼读</a></div>
-    <div class="sidebar-group"><p>日常语法</p><div id="grammar-nav"></div></div>
+    <div class="sidebar-group"><p>Korea · 课程目录</p><div id="grammar-nav"></div></div>
     <div class="sidebar-group"><p>练习资源</p><a class="course-link" href="#words" data-route>单词与句子</a><a class="course-link" href="#videos" data-route>视频学习</a></div>
   </aside>
 
@@ -66,11 +66,8 @@
           <div class="demo-bottom"><span>ga <small>·</small> 去：가다</span><button class="demo-sound" type="button" data-speak="가" aria-label="朗读音节 가"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12-1.5a6 6 0 0 1 0 9m2.5-11.5a9 9 0 0 1 0 14"/></svg><span>听一听</span></button></div>
         </div>
       </section>
-      <section class="course-overview" aria-label="课程路径">
-        <a href="#hangul" data-route><span>01</span><h2>韩文字母与拼读</h2><p>认识元音、辅音和 99 个基础组合。</p></a>
-        <a href="#words" data-route><span>02</span><h2>单词与句子</h2><p>把音节放进真实的日常表达。</p></a>
-        <a href="#grammar" data-route><span>03</span><h2>日常语法</h2><p>每课一个主题，学完马上练习。</p></a>
-      </section>
+      <section class="course-overview-heading"><h2>按顺序学习 · 5 节课程</h2><p>从音标入门，到日常表达、主语和场所，再到天气与四季。</p></section>
+      <div id="course-home-list"></div>
     </section>
     <section data-panel="hangul" hidden><div class="panel-intro"><span class="intro-rule"></span><p>四组拼读表，共 <strong>99</strong> 个音节。浅绿色是元音，浅红色是辅音；小字是标准罗马字提示。</p></div><div class="group-list" id="grids"></div></section>
     <section data-panel="words" hidden><div class="panel-intro"><span class="intro-rule"></span><p>不是每个音节都要硬背成单词。先学有用的，再把它放进一句话里。</p></div><div class="lesson-list" id="lessons"></div></section>

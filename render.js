@@ -44,23 +44,13 @@ export function renderGrammarIndex(lessons) {
 
 export function renderGrammarLesson(lesson, lessons) {
   const index = lessons.findIndex(item => item.id === lesson.id);
-  const sections = lesson.sections.map(section => `
-    <section class="grammar-section" id="${escapeHtml(section.id)}">
-      <h2>${escapeHtml(section.title)}</h2>
-      <p>${escapeHtml(section.explanation)}</p>
-      <ul class="rule-list">${section.rules.map(rule => `<li>${escapeHtml(rule)}</li>`).join('')}</ul>
-      <div class="example-list">${section.examples.map(example => `<div class="grammar-example"><b lang="ko">${escapeHtml(example.ko)}</b><span>${escapeHtml(example.zh)}</span></div>`).join('')}</div>
-    </section>`).join('');
-  const questions = lesson.exercises.map((exercise, exerciseIndex) => `<li><span>${exerciseIndex + 1}.</span>${escapeHtml(exercise.question)}</li>`).join('');
-  const answers = lesson.exercises.map((exercise, exerciseIndex) => `<li><span>${exerciseIndex + 1}.</span>${escapeHtml(exercise.answer)}</li>`).join('');
   const previous = lessons[index - 1];
   const next = lessons[index + 1];
 
   return `<article class="grammar-lesson">
     <header class="lesson-title"><span>${lessonLabel(lesson)}</span><h1 tabindex="-1">${escapeHtml(lesson.title)}</h1><p>${escapeHtml(lesson.summary)}</p></header>
-    <section class="lesson-goals" id="lesson-goals"><h2>本课学什么</h2><ul>${lesson.goals.map(goal => `<li>${escapeHtml(goal)}</li>`).join('')}</ul></section>
-    ${sections}
-    <section class="exercise-section" id="lesson-exercises"><h2>练习题</h2><ol>${questions}</ol><details class="answer-box"><summary>查看参考答案</summary><ol>${answers}</ol></details></section>
+    <div class="course-document">${lesson.html}</div>
+    <p class="course-source"><a href="./${escapeHtml(encodeURI(lesson.source))}" download>下载本课原始笔记 ↓</a></p>
     <nav class="lesson-pagination" aria-label="课程前后导航">
       ${previous ? `<a href="#${previous.id}" data-route>← ${lessonLabel(previous)}<span>${escapeHtml(previous.title)}</span></a>` : '<span></span>'}
       ${next ? `<a href="#${next.id}" data-route>${lessonLabel(next)} →<span>${escapeHtml(next.title)}</span></a>` : '<span></span>'}
@@ -69,5 +59,5 @@ export function renderGrammarLesson(lesson, lessons) {
 }
 
 export function renderLessonOutline(lesson) {
-  return `<p>本课目录</p><a href="#lesson-goals" data-outline="lesson-goals">本课学什么</a>${lesson.sections.map(section => `<a href="#${escapeHtml(section.id)}" data-outline="${escapeHtml(section.id)}">${escapeHtml(section.title.replace(/^\d+\.\s*/, ''))}</a>`).join('')}<a href="#lesson-exercises" data-outline="lesson-exercises">练习题</a>`;
+  return `<p>本课目录</p>${lesson.outline.map(item => `<a href="#${escapeHtml(item.id)}" data-outline="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a>`).join('')}`;
 }

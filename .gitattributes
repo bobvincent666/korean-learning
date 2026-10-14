@@ -1,0 +1,2 @@
+# Preserve the exact Korea notes; trailing spaces are Markdown line breaks.
+courses/*.md -text whitespace=-blank-at-eol

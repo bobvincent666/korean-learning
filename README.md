@@ -1,6 +1,19 @@
 # 零基础韩语课
 
-从韩文字母、发音到日常语法与练习的静态课程网站。内容包括四组韩文拼读表、单词与句子、三节日常语法课、练习题和入门视频。
+从韩文字母、发音到日常语法与练习的静态课程网站。完整同步 Korea 目录中的五节课程：01 音标、02 语法 日常生活、03 语法 主语助词、04 场所助词、05 天气与四季。另保留互动拼读、单词句子和入门视频。
+
+## 同步本地课程
+
+`courses/` 保存原始 Markdown 笔记和引用的图片；`course-data.js` 是由笔记生成的完整网页内容。发布使用已生成的静态文件，访客不需要 Python。
+
+```powershell
+python -m pip install -r tools/requirements-courses.txt
+npm run courses:sync -- "C:\Users\baoba\Documents\Obsidian Vault\Korea"
+```
+
+五课按原文件编号显示，所有练习与参考答案保留。以后从 Korea 目录同步，或直接修改 `courses/*.md` 后运行 `npm run courses:sync`。不要手动编辑生成的 `course-data.js`。目录之外的笔记不会被复制。
+
+课程同步脚本的检查：`python -m unittest discover -s tests -p test_sync_courses.py`。
 
 ## 发布到 GitHub Pages
 
